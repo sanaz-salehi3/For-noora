@@ -1,973 +1,1328 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Noora ✨🌙</title>
+<title>For Noora</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Estedad:wght@300;400;500;600;700&family=Vazirmatn:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Estedad:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
+*{margin:0;padding:0;box-sizing:border-box}
 
-/* =====================================================
-   RESET
-===================================================== */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth}
 
 body{
-    min-height:100vh;
-    background:#0a0815;
-    color:#f0e8ee;
-    font-family:"Vazirmatn",Tahoma,sans-serif;
-    overflow:hidden;
-    position:relative;
+  min-height:100vh;
+  overflow:hidden;
+  background:#08060b;
+  color:#fff;
+  font-family:"Estedad",Tahoma,sans-serif;
 }
 
-button{
-    font-family:"Vazirmatn",sans-serif;
-    cursor:pointer;
+p,h1,h2,h3,button,.title,.subtitle,.hint,.letter-box,
+.wish-gift,.own-wish-result,.secret-message,.signature-box{
+  font-family:"Estedad",Tahoma,sans-serif;
 }
 
-/* =====================================================
-   BACKGROUND
-===================================================== */
+.label,.glow-name,.final-name{
+  font-family:"Playfair Display","Inter",serif;
+}
 
 .bg{
-    position:fixed;
-    inset:0;
-    z-index:0;
-    background:
-        radial-gradient(ellipse at 30% 20%, #1a0f20 0%, #0d0818 40%, #06030d 100%);
-    overflow:hidden;
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  z-index:0;
+  background:radial-gradient(circle at 50% 45%,#251824 0%,#110b13 45%,#08060b 82%);
 }
 
-.glow-orb{
-    position:absolute;
-    border-radius:50%;
-    filter:blur(100px);
-    animation:orbFloat 12s ease-in-out infinite alternate;
+.glow{
+  position:absolute;
+  width:430px;
+  height:430px;
+  border-radius:50%;
+  filter:blur(120px);
+  opacity:.22;
+  animation:glowMove 14s ease-in-out infinite alternate;
 }
 
-.glow-orb:nth-child(1){
-    width:400px;
-    height:400px;
-    top:-200px;
-    right:-150px;
-    background:#7a4a7a;
-    opacity:.15;
+.glow:nth-child(1){
+  top:-230px;
+  right:-170px;
+  background:#b85d8d;
 }
 
-.glow-orb:nth-child(2){
-    width:350px;
-    height:350px;
-    bottom:-180px;
-    left:-150px;
-    background:#4a4a8a;
-    opacity:.12;
-    animation-delay:4s;
+.glow:nth-child(2){
+  bottom:-240px;
+  left:-180px;
+  background:#5750a0;
+  animation-delay:3s;
 }
 
-.glow-orb:nth-child(3){
-    width:250px;
-    height:250px;
-    top:50%;
-    left:50%;
-    background:#8a4a6a;
-    opacity:.08;
-    animation-delay:8s;
+.glow:nth-child(3){
+  width:280px;
+  height:280px;
+  top:40%;
+  left:40%;
+  background:#a45f8b;
+  opacity:.07;
+  animation-delay:6s;
 }
 
-@keyframes orbFloat{
-    from{transform:translate(0,0) scale(1);}
-    to{transform:translate(40px,30px) scale(1.2);}
+@keyframes glowMove{
+  from{transform:translate3d(0,0,0) scale(1)}
+  to{transform:translate3d(35px,25px,0) scale(1.1)}
 }
 
-/* =====================================================
-   MOON
-===================================================== */
-
-.moon{
-    position:fixed;
-    top:8%;
-    right:10%;
-    width:90px;
-    height:90px;
-    border-radius:50%;
-    background:radial-gradient(circle at 35% 35%, #fffbe6, #f5e6b8 40%, #d4c08a 70%, #b89f6b);
-    box-shadow:0 0 60px rgba(245,230,184,0.12), 0 0 120px rgba(245,230,184,0.06);
-    z-index:1;
-    animation:moonGlow 6s ease-in-out infinite alternate;
+.vignette{
+  position:fixed;
+  inset:0;
+  z-index:9;
+  pointer-events:none;
+  background:radial-gradient(ellipse at center,transparent 42%,rgba(0,0,0,.42) 100%);
 }
 
-@keyframes moonGlow{
-    0%{box-shadow:0 0 60px rgba(245,230,184,0.08), 0 0 120px rgba(245,230,184,0.04);}
-    100%{box-shadow:0 0 80px rgba(245,230,184,0.2), 0 0 160px rgba(245,230,184,0.1), 0 0 250px rgba(245,230,184,0.05);}
-}
-
-.moon-crater{
-    position:absolute;
-    border-radius:50%;
-    background:rgba(180,150,100,0.15);
-}
-
-.moon-crater:nth-child(1){width:15px;height:18px;top:25%;left:20%;}
-.moon-crater:nth-child(2){width:22px;height:18px;top:15%;left:55%;}
-.moon-crater:nth-child(3){width:10px;height:12px;top:55%;left:30%;}
-.moon-crater:nth-child(4){width:28px;height:25px;top:60%;left:55%;}
-.moon-crater:nth-child(5){width:7px;height:9px;top:40%;left:75%;}
-
-/* =====================================================
-   STARS
-===================================================== */
-
-.star{
-    position:fixed;
-    border-radius:50%;
-    background:#fff;
-    z-index:1;
-    animation:twinkle var(--duration) ease-in-out infinite;
+.bg-star{
+  position:fixed;
+  border-radius:50%;
+  background:#fff;
+  z-index:1;
+  animation:twinkle var(--duration) ease-in-out infinite;
 }
 
 @keyframes twinkle{
-    0%,100%{opacity:.1;transform:scale(.6);}
-    50%{opacity:1;transform:scale(1.3);}
+  0%,100%{opacity:.1;transform:scale(.5)}
+  50%{opacity:.8;transform:scale(1.4)}
 }
-
-.shooting-star{
-    position:fixed;
-    z-index:1;
-    width:3px;
-    height:3px;
-    background:#fff;
-    border-radius:50%;
-    box-shadow:0 0 6px 2px rgba(255,255,255,0.3);
-    animation:shoot var(--duration) linear infinite;
-    opacity:0;
-}
-
-.shooting-star::after{
-    content:'';
-    position:absolute;
-    top:0;
-    right:0;
-    width:70px;
-    height:1px;
-    background:linear-gradient(to left, rgba(255,255,255,0.7), transparent);
-}
-
-@keyframes shoot{
-    0%{transform:translate(0,0) rotate(-35deg);opacity:0;}
-    5%{opacity:1;}
-    15%{opacity:1;}
-    20%{opacity:0;}
-    100%{transform:translate(-350px,180px) rotate(-35deg);opacity:0;}
-}
-
-/* =====================================================
-   PARTICLES
-===================================================== */
-
-.particle{
-    position:fixed;
-    border-radius:50%;
-    background:#e8bfd3;
-    opacity:.12;
-    z-index:1;
-    animation:particleFloat linear infinite;
-}
-
-@keyframes particleFloat{
-    from{transform:translateY(110vh) scale(0);opacity:0;}
-    10%{opacity:.25;}
-    90%{opacity:.15;}
-    to{transform:translateY(-20vh) scale(1);opacity:0;}
-}
-
-/* =====================================================
-   BUTTERFLIES
-===================================================== */
-
-.butterfly{
-    position:fixed;
-    z-index:1;
-    pointer-events:none;
-    font-size:20px;
-    animation:fly var(--duration) ease-in-out infinite;
-    filter:drop-shadow(0 0 15px rgba(200,150,180,0.06));
-}
-
-@keyframes fly{
-    0%{transform:translate(0,0) rotate(0deg) scale(1);opacity:0.2;}
-    25%{transform:translate(var(--x1),var(--y1)) rotate(8deg) scale(1.1);opacity:0.7;}
-    50%{transform:translate(var(--x2),var(--y2)) rotate(-4deg) scale(0.9);opacity:0.9;}
-    75%{transform:translate(var(--x3),var(--y3)) rotate(6deg) scale(1.05);opacity:0.6;}
-    100%{transform:translate(var(--x4),var(--y4)) rotate(0deg) scale(1);opacity:0.2;}
-}
-
-/* =====================================================
-   MAIN CONTAINER
-===================================================== */
 
 .container{
-    position:relative;
-    z-index:2;
-    width:100%;
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:20px;
+  position:relative;
+  z-index:2;
+  width:100%;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
 }
-
-/* =====================================================
-   SCREENS
-===================================================== */
 
 .screen{
-    display:none;
-    width:100%;
-    max-width:700px;
-    animation:screenIn 0.9s cubic-bezier(.22,1,.36,1);
+  display:none;
+  width:100%;
+  max-width:700px;
+  max-height:94vh;
+  overflow-y:auto;
+  scrollbar-width:none;
+  animation:screenIn .8s cubic-bezier(.22,1,.36,1);
 }
 
-.screen.active{
-    display:block;
-}
+.screen::-webkit-scrollbar{display:none}
+
+.screen.active{display:block}
 
 @keyframes screenIn{
-    from{opacity:0;transform:scale(.97) translateY(25px);filter:blur(10px);}
-    to{opacity:1;transform:scale(1) translateY(0);filter:blur(0);}
+  from{
+    opacity:0;
+    transform:translateY(18px) scale(.985);
+    filter:blur(5px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+    filter:blur(0);
+  }
 }
-
-/* =====================================================
-   CARD
-===================================================== */
 
 .card{
-    background:rgba(255,255,255,.035);
-    backdrop-filter:blur(25px);
-    -webkit-backdrop-filter:blur(25px);
-    border-radius:45px 45px 30px 30px;
-    padding:50px 40px;
-    border:1px solid rgba(255,255,255,.05);
-    box-shadow:0 30px 80px rgba(0,0,0,.5), inset 0 0 80px rgba(255,255,255,.015);
-    text-align:center;
-    position:relative;
-    overflow:hidden;
+  position:relative;
+  overflow:hidden;
+  padding:40px 30px 44px;
+  border-radius:48px;
+  text-align:center;
+  background:rgba(255,255,255,.035);
+  border:1px solid rgba(255,255,255,.07);
+  backdrop-filter:blur(25px);
+  -webkit-backdrop-filter:blur(25px);
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.5),
+    inset 0 0 80px rgba(255,255,255,.015);
+  animation:cardFloat 7s ease-in-out infinite;
 }
 
-.card::before{
-    content:'';
-    position:absolute;
-    top:0;
-    left:0;
-    right:0;
-    height:1px;
-    background:linear-gradient(90deg, transparent, rgba(220,180,200,.2), transparent);
+@keyframes cardFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-2px)}
 }
 
-/* =====================================================
-   TYPOGRAPHY
-===================================================== */
+.card:before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:10%;
+  right:10%;
+  height:1px;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(230,190,210,.35),
+    transparent
+  );
+}
 
 .label{
-    font-family:Georgia,serif;
-    font-size:10px;
-    letter-spacing:6px;
-    color:#c8a8b8;
-    direction:ltr;
-    text-transform:uppercase;
-    opacity:.6;
+  font-size:10px;
+  letter-spacing:5px;
+  color:#c8a8b8;
+  direction:ltr;
+  opacity:.7;
 }
 
-.title{
-    font-family:"Estedad",sans-serif;
-    font-size:clamp(28px,7vw,48px);
-    font-weight:400;
-    margin:18px 0 25px;
-    letter-spacing:-1px;
-    color:#f5e4ee;
-}
-
-.subtitle{
-    font-size:15px;
-    color:#c8b8c0;
-    line-height:2.5;
-    font-weight:300;
-}
-
-.hint{
-    font-size:12px;
-    color:#8a7a84;
-    margin-top:18px;
-    font-weight:300;
-}
-
-/* =====================================================
-   BUTTON
-===================================================== */
-
-.btn{
-    position:relative;
-    padding:16px 42px;
-    border-radius:60px;
-    border:1px solid rgba(220,180,200,.12);
-    background:rgba(255,255,255,.03);
-    color:#f0e8ee;
-    font-size:14px;
-    transition:all .5s cubic-bezier(.22,1,.36,1);
-    backdrop-filter:blur(10px);
-    overflow:hidden;
-    margin-top:10px;
-}
-
-.btn::before{
-    content:'';
-    position:absolute;
-    top:0;
-    left:-100%;
-    width:60%;
-    height:100%;
-    background:linear-gradient(90deg, transparent, rgba(255,255,255,.06), transparent);
-    transform:skewX(-20deg);
-    transition:.7s;
-}
-
-.btn:hover::before{
-    left:130%;
-}
-
-.btn:hover{
-    transform:translateY(-4px) scale(1.02);
-    border-color:rgba(220,180,200,.25);
-    background:rgba(255,255,255,.07);
-    box-shadow:0 15px 45px rgba(150,80,120,.12);
-}
-
-/* =====================================================
-   INTRO
-===================================================== */
-
-.glow-name{
-    font-family:Georgia,serif;
-    font-size:clamp(70px,20vw,130px);
-    font-weight:normal;
-    letter-spacing:-5px;
-    line-height:.85;
-    direction:ltr;
-    margin:28px 0 18px;
-    background:linear-gradient(135deg, #f5e8f0 20%, #d4b0c8 50%, #f5e8f0 80%);
-    background-size:200% auto;
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
-    animation:shine 4s linear infinite;
-    filter:drop-shadow(0 0 30px rgba(180,120,160,.12));
+#intro .glow-name{
+  font-size:56px;
+  font-weight:500;
+  letter-spacing:2px;
+  line-height:1.1;
+  direction:ltr;
+  margin:16px 0 10px;
+  background:linear-gradient(120deg,#fff,#d7b5c9,#fff);
+  background-size:200% auto;
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  animation:shine 6s linear infinite;
 }
 
 @keyframes shine{
-    from{background-position:200% center;}
-    to{background-position:-200% center;}
-}
-
-/* =====================================================
-   ENVELOPE
-===================================================== */
-
-.envelope-wrap{
-    text-align:center;
-}
-
-.envelope{
-    width:260px;
-    height:170px;
-    margin:35px auto 25px;
-    position:relative;
-    cursor:pointer;
-    perspective:900px;
-    transition:.5s;
-}
-
-.envelope:hover{
-    transform:translateY(-8px) scale(1.02);
-}
-
-.envelope-back{
-    position:absolute;
-    inset:0;
-    border-radius:10px;
-    background:linear-gradient(145deg, #d3a1b7, #75495f);
-    box-shadow:0 30px 80px rgba(0,0,0,.65), 0 0 50px rgba(180,100,140,.1);
-}
-
-.envelope-left{
-    position:absolute;
-    left:0;
-    bottom:0;
-    width:0;
-    height:0;
-    border-top:85px solid transparent;
-    border-left:130px solid #a56d84;
-    z-index:2;
-}
-
-.envelope-right{
-    position:absolute;
-    right:0;
-    bottom:0;
-    width:0;
-    height:0;
-    border-top:85px solid transparent;
-    border-right:130px solid #925f76;
-    z-index:2;
-}
-
-.flap{
-    position:absolute;
-    top:0;
-    left:0;
-    width:0;
-    height:0;
-    border-left:130px solid transparent;
-    border-right:130px solid transparent;
-    border-top:92px solid #deb4c5;
-    transform-origin:top center;
-    transition:1s cubic-bezier(.22,1,.36,1);
-    z-index:4;
-    filter:drop-shadow(0 8px 8px rgba(0,0,0,.12));
-}
-
-.envelope.open .flap{
-    transform:rotateX(180deg);
-}
-
-.seal{
-    position:absolute;
-    width:46px;
-    height:46px;
-    left:calc(50% - 23px);
-    top:64px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:50%;
-    background:#fff;
-    color:#9b647c;
-    font-size:20px;
-    z-index:6;
-    box-shadow:0 0 0 5px rgba(255,255,255,.05), 0 10px 25px rgba(0,0,0,.25);
-    transition:.6s;
-}
-
-.envelope.open .seal{
-    opacity:0;
-    transform:scale(0) rotate(90deg);
-}
-
-/* =====================================================
-   LETTER
-===================================================== */
-
-.letter-box{
-    text-align:right;
-    padding:35px 28px;
-    border-radius:28px;
-    background:linear-gradient(135deg, rgba(255,255,255,.07), rgba(255,255,255,.02));
-    border:1px solid rgba(255,255,255,.08);
-    box-shadow:0 30px 80px rgba(0,0,0,.4), inset 0 0 50px rgba(255,255,255,.01);
-    backdrop-filter:blur(20px);
-    position:relative;
-    overflow:hidden;
-}
-
-.letter-box::before{
-    content:'';
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:1px;
-    background:linear-gradient(90deg, transparent, #e0b5c9, transparent);
-    opacity:.4;
-}
-
-.letter-box h3{
-    margin-top:0;
-    font-family:"Estedad",sans-serif;
-    font-size:24px;
-    font-weight:500;
-    color:#f1dce6;
-}
-
-.letter-box p{
-    color:#d7cbd2;
-    font-family:"Vazirmatn",sans-serif;
-    font-size:14px;
-    line-height:2.7;
-    margin:0 0 18px;
-    font-weight:300;
-}
-
-/* =====================================================
-   STAR COLLECTOR
-===================================================== */
-
-.star-collector{
-    display:flex;
-    justify-content:center;
-    gap:12px;
-    margin:30px 0 20px;
-    flex-wrap:wrap;
-}
-
-.star-item{
-    font-size:30px;
-    opacity:.15;
-    transition:all .5s cubic-bezier(.34,1.56,.64,1);
-    cursor:pointer;
-    user-select:none;
-    filter:grayscale(1);
-}
-
-.star-item.collected{
-    opacity:1;
-    transform:scale(1.2);
-    filter:grayscale(0);
-    animation:starPop .5s cubic-bezier(.34,1.56,.64,1);
-}
-
-@keyframes starPop{
-    0%{transform:scale(0) rotate(-30deg);}
-    100%{transform:scale(1.2) rotate(0);}
-}
-
-/* =====================================================
-   CANDLE
-===================================================== */
-
-.candle{
-    position:relative;
-    width:30px;
-    height:95px;
-    margin:30px auto;
-    cursor:pointer;
-}
-
-.candle-body{
-    position:absolute;
-    bottom:0;
-    left:4px;
-    width:22px;
-    height:65px;
-    border-radius:5px;
-    background:linear-gradient(90deg, #c990aa, #fff, #d49ab3);
-    box-shadow:0 5px 20px rgba(220,150,180,.12);
-}
-
-.flame{
-    position:absolute;
-    top:-8px;
-    left:5px;
-    width:20px;
-    height:30px;
-    border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;
-    background:radial-gradient(ellipse at 50% 80%, #fff8e1 0%, #ffd17b 35%, #ffb347 70%, #ff8a5c 100%);
-    box-shadow:0 0 20px #ffc56c, 0 0 45px #ffb95f, 0 0 80px rgba(255,170,80,.25);
-    animation:flameFlicker .6s ease-in-out infinite alternate;
-    transform-origin:center bottom;
-}
-
-@keyframes flameFlicker{
-    0%{transform:scale(1) translateX(0);border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;}
-    25%{transform:scale(1.05,1.1) translateX(-1px);border-radius:55% 45% 50% 50% / 65% 55% 35% 45%;}
-    50%{transform:scale(.95,1.05) translateX(1px);border-radius:45% 55% 50% 50% / 55% 65% 45% 35%;}
-    75%{transform:scale(1.08,.95) translateX(-1px);border-radius:50% 50% 45% 55% / 60% 50% 40% 50%;}
-    100%{transform:scale(1) translateX(0);border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;}
-}
-
-.flame.off{display:none;}
-
-.cake-message{
-    display:none;
-    margin-top:25px;
-    animation:messageIn 1s cubic-bezier(.22,1,.36,1);
-}
-
-.cake-message.show{display:block;}
-
-@keyframes messageIn{
-    from{opacity:0;transform:translateY(25px);filter:blur(8px);}
-    to{opacity:1;transform:translateY(0);filter:blur(0);}
-}
-
-/* =====================================================
-   GALAXY
-===================================================== */
-
-.galaxy{
-    width:120px;
-    height:120px;
-    margin:20px auto;
-    position:relative;
-    animation:spin 20s linear infinite;
-}
-
-.galaxy-ring{
-    position:absolute;
-    border-radius:50%;
-    border:1px solid rgba(200,170,200,.08);
-}
-
-.galaxy-ring:nth-child(1){inset:0;border-color:rgba(200,170,200,.12);}
-.galaxy-ring:nth-child(2){inset:10px;border-color:rgba(200,170,200,.08);animation:spinReverse 15s linear infinite;}
-.galaxy-ring:nth-child(3){inset:20px;border-color:rgba(200,170,200,.05);animation:spin 12s linear infinite;}
-
-.galaxy-center{
-    position:absolute;
-    inset:40px;
-    border-radius:50%;
-    background:radial-gradient(circle, rgba(220,180,200,.12), transparent);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:28px;
-}
-
-@keyframes spin{
-    from{transform:rotate(0deg);}
-    to{transform:rotate(360deg);}
-}
-
-@keyframes spinReverse{
-    from{transform:rotate(360deg);}
-    to{transform:rotate(0deg);}
-}
-
-/* =====================================================
-   FINAL
-===================================================== */
-
-.final-heart{
-    font-size:50px;
-    animation:heartPulse 1.8s ease-in-out infinite;
-    filter:drop-shadow(0 0 40px rgba(200,150,180,.15));
-}
-
-@keyframes heartPulse{
-    0%,100%{transform:scale(1);}
-    50%{transform:scale(1.15);}
+  from{background-position:200% center}
+  to{background-position:-200% center}
 }
 
 .final-name{
-    font-family:Georgia,serif;
-    font-size:clamp(50px,12vw,85px);
-    font-weight:normal;
-    letter-spacing:-4px;
-    direction:ltr;
-    margin:15px 0 20px;
-    background:linear-gradient(135deg, #f5e8f0 20%, #d4b0c8 50%, #f5e8f0 80%);
-    background-size:200% auto;
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
-    animation:shine 4s linear infinite;
+  font-size:76px;
+  font-weight:500;
+  letter-spacing:2px;
+  direction:ltr;
+  margin:14px 0 10px;
+  background:linear-gradient(120deg,#fff,#dfb5c9,#fff);
+  background-size:200% auto;
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  animation:shine 7s linear infinite;
 }
 
-/* =====================================================
-   CONFETTI / STARFALL
-===================================================== */
+.title{
+  font-size:28px;
+  font-weight:400;
+  color:#f5e4ee;
+  margin:10px 0 12px;
+}
+
+.subtitle{
+  color:#c8b8c0;
+  font-size:14px;
+  line-height:2.1;
+  font-weight:300;
+}
+
+.hint{
+  color:#887883;
+  font-size:12px;
+  margin-top:14px;
+}
+
+strong{
+  color:#f5e4ee;
+  font-weight:600;
+}
+
+.btn{
+  margin-top:18px;
+  padding:14px 35px;
+  border-radius:50px;
+  border:1px solid rgba(220,180,200,.15);
+  background:rgba(255,255,255,.035);
+  color:#f0e8ee;
+  font-family:"Estedad",sans-serif;
+  font-size:14px;
+  cursor:pointer;
+  transition:
+    transform .45s cubic-bezier(.22,1,.36,1),
+    background .45s ease,
+    box-shadow .45s ease;
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+  background:rgba(255,255,255,.08);
+  box-shadow:0 12px 35px rgba(150,80,120,.15);
+}
+
+/* envelope */
+
+.envelope{
+  width:260px;
+  height:170px;
+  margin:24px auto 14px;
+  position:relative;
+  cursor:pointer;
+  transition:transform .6s cubic-bezier(.22,1,.36,1);
+}
+
+.envelope:hover{transform:translateY(-6px)}
+
+.envelope-back{
+  position:absolute;
+  inset:0;
+  border-radius:10px;
+  background:linear-gradient(145deg,#d3a1b7,#75495f);
+  box-shadow:0 25px 60px rgba(0,0,0,.55);
+}
+
+.envelope-left{
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:0;
+  height:0;
+  border-top:85px solid transparent;
+  border-left:130px solid #a56d84;
+  z-index:2;
+}
+
+.envelope-right{
+  position:absolute;
+  right:0;
+  bottom:0;
+  width:0;
+  height:0;
+  border-top:85px solid transparent;
+  border-right:130px solid #925f76;
+  z-index:2;
+}
+
+.flap{
+  position:absolute;
+  top:0;
+  left:0;
+  width:0;
+  height:0;
+  border-left:130px solid transparent;
+  border-right:130px solid transparent;
+  border-top:92px solid #deb4c5;
+  transform-origin:top center;
+  transition:1s cubic-bezier(.22,1,.36,1);
+  z-index:4;
+}
+
+.envelope.open .flap{transform:rotateX(180deg)}
+
+.seal{
+  position:absolute;
+  width:46px;
+  height:46px;
+  left:calc(50% - 23px);
+  top:64px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:#fff;
+  color:#9b647c;
+  font-size:20px;
+  z-index:6;
+  transition:.5s;
+}
+
+.envelope.open .seal{
+  opacity:0;
+  transform:scale(0);
+}
+
+/* letter */
+
+.letter-box{
+  text-align:right;
+  padding:22px 22px 18px;
+  border-radius:25px;
+  background:rgba(255,255,255,.045);
+  border:1px solid rgba(255,255,255,.08);
+}
+
+.letter-box h3{
+  font-size:21px;
+  color:#f1dce6;
+  margin-bottom:10px;
+}
+
+.letter-box p{
+  color:#d7cbd2;
+  font-size:14px;
+  line-height:2.2;
+  margin-bottom:8px;
+}
+
+/* wishes */
+
+.star-wishes{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:13px;
+  max-width:390px;
+  margin:22px auto;
+}
+
+.star-button{
+  width:65px;
+  height:65px;
+  margin:auto;
+  border-radius:50%;
+  border:1px solid rgba(232,193,215,.18);
+  background:radial-gradient(
+    circle,
+    rgba(232,199,216,.2),
+    rgba(255,255,255,.025)
+  );
+  color:#e8cada;
+  font-size:25px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:
+    transform .5s cubic-bezier(.22,1,.36,1),
+    box-shadow .5s ease,
+    opacity .5s ease;
+}
+
+.star-button:hover{
+  transform:translateY(-5px) scale(1.06);
+  box-shadow:0 0 28px rgba(210,150,185,.22);
+}
+
+.star-button.used{
+  opacity:.25;
+  transform:scale(.85);
+  pointer-events:none;
+}
+
+.wish-gift{
+  display:none;
+  max-width:400px;
+  margin:10px auto 0;
+  padding:14px 18px;
+  border-radius:18px;
+  background:rgba(255,255,255,.045);
+  border:1px solid rgba(255,255,255,.07);
+  color:#e8dce2;
+  font-size:13px;
+  line-height:1.9;
+  animation:messageIn .65s ease;
+}
+
+.wish-gift.show{display:block}
+
+@keyframes messageIn{
+  from{
+    opacity:0;
+    transform:translateY(14px);
+    filter:blur(4px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+    filter:blur(0);
+  }
+}
+
+.wish-orb{
+  width:105px;
+  height:105px;
+  margin:22px auto 14px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:43px;
+  cursor:pointer;
+  background:radial-gradient(
+    circle,
+    #e9c7d8 0%,
+    #9d6480 45%,
+    #34202d 75%,
+    transparent 76%
+  );
+  box-shadow:0 0 50px rgba(210,150,185,.25);
+  animation:orbFloat 3s ease-in-out infinite;
+  transition:transform .5s ease;
+}
+
+.wish-orb:hover{transform:scale(1.08)}
+
+@keyframes orbFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-7px)}
+}
+
+.own-wish-result{
+  display:none;
+  margin-top:14px;
+  padding:16px 18px;
+  border-radius:20px;
+  background:rgba(255,255,255,.045);
+  color:#ead9e2;
+  line-height:2.1;
+  font-size:13px;
+  animation:messageIn .7s ease;
+}
+
+.own-wish-result.show{display:block}
+
+/* birthday */
+
+.cake{
+  font-size:70px;
+  margin:4px 0 0;
+  animation:cakeFloat 3.5s ease-in-out infinite;
+}
+
+@keyframes cakeFloat{
+  0%,100%{transform:translateY(0) rotate(-1deg)}
+  50%{transform:translateY(-8px) rotate(1deg)}
+}
+
+.candles{
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  margin:18px 0 6px;
+}
+
+.candle{
+  width:25px;
+  height:65px;
+  position:relative;
+  cursor:pointer;
+}
+
+.candle-body{
+  position:absolute;
+  bottom:0;
+  width:25px;
+  height:45px;
+  border-radius:5px;
+  background:linear-gradient(90deg,#b97998,#f2dce5,#c786a3);
+  box-shadow:
+    inset 0 0 5px rgba(255,255,255,.3),
+    0 5px 12px rgba(0,0,0,.2);
+}
+
+.flame{
+  position:absolute;
+  width:16px;
+  height:23px;
+  top:-5px;
+  left:4px;
+  border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;
+  background:radial-gradient(
+    ellipse at 50% 80%,
+    #fff8e1,
+    #ffd17b 35%,
+    #ff9d5d 75%
+  );
+  box-shadow:
+    0 0 18px #ffc56c,
+    0 0 35px rgba(255,180,80,.35);
+  animation:flicker .6s infinite alternate;
+}
+
+.flame.off{display:none}
+
+@keyframes flicker{
+  from{transform:scale(1) rotate(-3deg)}
+  to{transform:scale(1.08,.95) rotate(3deg)}
+}
+
+.birthday-result{
+  display:none;
+  animation:messageIn .8s ease;
+}
+
+.birthday-result.show{display:block}
+
+/* secret */
+
+.secret-message{
+  display:none;
+  margin-top:18px;
+  padding:20px 20px 14px;
+  border-radius:24px;
+  background:rgba(255,255,255,.045);
+  color:#d8ccd3;
+  font-size:14px;
+  line-height:2.2;
+}
+
+.secret-message.show{
+  display:block;
+  animation:messageIn .8s ease;
+}
+
+/* final */
+
+.final-heart{
+  font-size:40px;
+  color:#e2bacd;
+  animation:heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.15)}
+}
+
+/* امضای ساناز */
+
+.signature-box{
+  width:fit-content;
+  min-width:175px;
+  margin:32px auto 0;
+  padding:13px 30px 11px;
+  position:relative;
+  border:1px solid rgba(220,180,200,.16);
+  border-radius:18px 6px 18px 6px;
+  background:rgba(255,255,255,.025);
+  color:#cdb5c2;
+  font-family:"Estedad",sans-serif;
+  font-size:14px;
+  letter-spacing:.5px;
+  box-shadow:
+    0 8px 30px rgba(0,0,0,.18),
+    inset 0 0 20px rgba(255,255,255,.018);
+}
+
+/* یک قلب صورتی کوچک، بدون ایموجی */
+
+.signature-box:before{
+  content:"";
+  position:absolute;
+  width:10px;
+  height:10px;
+  top:-6px;
+  right:17px;
+  background:#d98baa;
+  transform:rotate(45deg);
+  border-radius:2px;
+  box-shadow:0 0 12px rgba(217,139,170,.25);
+}
+
+.signature-box:after{
+  content:"";
+  position:absolute;
+  left:18px;
+  right:18px;
+  bottom:6px;
+  height:1px;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(220,180,200,.25),
+    transparent
+  );
+}
 
 #starfall{
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    z-index:100;
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:100;
 }
 
 .star-piece{
-    position:absolute;
-    font-size:20px;
-    animation:starFall var(--duration) cubic-bezier(.2,.7,.3,1) forwards;
-    opacity:0;
+  position:absolute;
+  font-size:20px;
+  animation:starFall var(--duration) linear forwards;
 }
 
 @keyframes starFall{
-    0%{transform:translateY(-50px) rotate(0deg) scale(0);opacity:0;}
-    10%{opacity:1;transform:translateY(0) rotate(45deg) scale(1);}
-    100%{transform:translateY(110vh) rotate(720deg) scale(.5);opacity:0;}
-}
-
-/* =====================================================
-   SIGNATURE
-===================================================== */
-
-.signature{
-    margin-top:45px;
-    color:#665a64;
-    font-family:"Estedad",sans-serif;
-    font-size:11px;
-    opacity:.5;
-}
-
-/* =====================================================
-   FADE OVERLAY
-===================================================== */
-
-#fadeOverlay{
-    position:fixed;
-    inset:0;
-    background:#000;
-    z-index:999;
-    pointer-events:none;
+  from{
+    transform:translateY(-30px) rotate(0) scale(.5);
     opacity:0;
-    transition:opacity 3s cubic-bezier(.4,0,1,1);
+  }
+  10%{opacity:1}
+  to{
+    transform:translateY(110vh) rotate(720deg) scale(.7);
+    opacity:0;
+  }
 }
 
-#fadeOverlay.active{opacity:1;}
-
-/* =====================================================
-   RESPONSIVE
-===================================================== */
+/* responsive */
 
 @media(max-width:600px){
-    .card{padding:30px 20px;border-radius:35px;}
-    .glow-name{letter-spacing:-3px;}
-    .moon{width:60px;height:60px;top:5%;right:5%;}
-    .envelope{transform:scale(.85);}
-    .envelope:hover{transform:scale(.85) translateY(-5px);}
-    .letter-box{padding:25px 18px;}
-}
 
+  .container{
+    padding:14px;
+  }
+
+  .screen{
+    max-height:96vh;
+  }
+
+  .card{
+    padding:32px 18px 44px;
+    border-radius:34px;
+  }
+
+  #intro .glow-name{
+    font-size:46px;
+  }
+
+  .final-name{
+    font-size:56px;
+  }
+
+  .envelope{
+    transform:scale(.82);
+    margin:16px auto 10px;
+  }
+
+  .envelope:hover{
+    transform:scale(.82) translateY(-5px);
+  }
+
+  .letter-box{
+    padding:18px 14px;
+  }
+
+  .star-wishes{
+    gap:8px;
+  }
+
+  .star-button{
+    width:56px;
+    height:56px;
+    font-size:22px;
+  }
+
+  .btn{
+    margin-top:16px;
+    padding:12px 28px;
+    font-size:13px;
+  }
+
+  .title{
+    font-size:24px;
+  }
+
+  .subtitle{
+    font-size:13px;
+    line-height:2;
+  }
+}
 </style>
 </head>
 
 <body>
 
-<!-- =====================================================
-     BACKGROUND
-===================================================== -->
-
 <div class="bg">
-    <div class="glow-orb"></div>
-    <div class="glow-orb"></div>
-    <div class="glow-orb"></div>
+  <div class="glow"></div>
+  <div class="glow"></div>
+  <div class="glow"></div>
 </div>
 
-<!-- Moon -->
-<div class="moon">
-    <div class="moon-crater"></div>
-    <div class="moon-crater"></div>
-    <div class="moon-crater"></div>
-    <div class="moon-crater"></div>
-    <div class="moon-crater"></div>
-</div>
-
-<!-- Butterflies -->
-<div class="butterfly" style="top:15%;right:20%;--duration:14s;--x1:30px;--y1:-25px;--x2:-25px;--y2:35px;--x3:40px;--y3:-20px;--x4:-15px;--y4:15px;">🦋</div>
-<div class="butterfly" style="bottom:25%;left:15%;--duration:16s;--x1:-35px;--y1:20px;--x2:30px;--y2:-30px;--x3:-20px;--y3:40px;--x4:20px;--y4:-10px;animation-delay:3s;">🦋</div>
-
+<div class="vignette"></div>
 <div id="starfall"></div>
-<div id="fadeOverlay"></div>
-
-<!-- =====================================================
-   MAIN CONTAINER
-===================================================== -->
 
 <div class="container">
 
-    <!-- ========== SCREEN 1: INTRO ========== -->
-    <div id="intro" class="screen active">
-        <div class="card">
-            <div class="label">✦ Hey Noora ✦</div>
-            <div class="glow-name">نورا</div>
-            <div style="color:#b8a0b0;font-size:13px;letter-spacing:2px;margin-bottom:18px;">
-                ۲۹ شهریور ۱۴۰۵
-            </div>
-            <p class="subtitle">
-                یه چیزای قشنگ برات درست کردم 🥰<br>
-                امیدوارم خوشت بیاد!
-            </p>
-            <button class="btn" onclick="showScreen('envelope')">
-                شروع کنیم؟ 🌙
-            </button>
-        </div>
+<!-- INTRO -->
+
+<section id="intro" class="screen active">
+  <div class="card">
+
+    <div class="label">A SMALL GIFT FOR</div>
+
+    <div class="glow-name">NOORA</div>
+
+    <div style="
+      color:#b8a0b0;
+      font-size:13px;
+      margin-bottom:12px;
+      font-family:'Estedad',sans-serif;
+    ">
+      ۲۹ شهریور ۱۴۰۵
     </div>
 
-    <!-- ========== SCREEN 2: ENVELOPE ========== -->
-    <div id="envelope" class="screen">
-        <div class="card">
-            <div class="label">💌 You've Got Mail</div>
-            <h2 class="title">یه نامه واسه تو...</h2>
-            <div class="envelope" id="envelopeBox" onclick="openEnvelope()">
-                <div class="envelope-back"></div>
-                <div class="envelope-left"></div>
-                <div class="envelope-right"></div>
-                <div class="flap"></div>
-                <div class="seal">♡</div>
-            </div>
-            <div class="hint">رو پاکت بزن تا باز شه 😊</div>
-        </div>
+    <button class="btn" onclick="showScreen('envelope')">
+      بزن بریم
+    </button>
+
+  </div>
+</section>
+
+
+<!-- ENVELOPE -->
+
+<section id="envelope" class="screen">
+  <div class="card">
+
+    <div class="label">A LITTLE LETTER</div>
+
+    <h2 class="title">یه نامه واسه تو</h2>
+
+    <p class="subtitle">
+      فقط کافیه روی پاکت بزنی :)
+    </p>
+
+    <div
+      class="envelope"
+      id="envelopeBox"
+      onclick="openEnvelope()"
+    >
+      <div class="envelope-back"></div>
+      <div class="envelope-left"></div>
+      <div class="envelope-right"></div>
+      <div class="flap"></div>
+      <div class="seal">♡</div>
     </div>
 
-    <!-- ========== SCREEN 3: LETTER ========== -->
-    <div id="letter" class="screen">
-        <div class="card">
-            <div class="label">💫 For Noora</div>
-            <h2 class="title">سلام نورا جان 🤍</h2>
-            <div class="letter-box">
-                <h3>نورا جان،</h3>
-                <p>بالاخره رسید به روزی که منتظرش بودم! تولدت مبارک 🎉</p>
-                <p>امیدوارم سال جدید برات پر از اتفاقای خوب باشه. چیزایی که دوست داری، آدمایی که دوستشون داری، همه چی کنار هم.</p>
-                <p>امیدوارم به هر چیزی که می‌خوای برسی، حتی اونایی که هنوز به کسی نگفتی 🤫</p>
-                <p>امیدوارم همیشه بخندی و دلت آروم باشه.</p>
-                <p>تولدت مبارک نورا جون. 🎂🤍</p>
-            </div>
-            <br>
-            <button class="btn" onclick="showScreen('collector')">یه بازی جذاب داریم... ✨</button>
-        </div>
+    <div class="hint">
+      رو پاکت بزن تا بازش کنم
     </div>
 
-    <!-- ========== SCREEN 4: STAR COLLECTOR ========== -->
-    <div id="collector" class="screen">
-        <div class="card">
-            <div class="label">☆ Let's Play ☆</div>
-            <h2 class="title">ستاره‌ها رو جمع کن</h2>
-            <p class="subtitle">هر ستاره یه آرزوعه.<br>رو هر کدوم بزن تا روشن شه...</p>
+  </div>
+</section>
 
-            <div class="star-collector" id="starCollector">
-                <span class="star-item" data-index="0">✦</span>
-                <span class="star-item" data-index="1">✦</span>
-                <span class="star-item" data-index="2">✦</span>
-                <span class="star-item" data-index="3">✦</span>
-                <span class="star-item" data-index="4">✦</span>
-            </div>
 
-            <div id="collectorMessage" style="display:none;">
-                <p class="subtitle" style="color:#e8d0e0;">✨ آفرین! همه رو جمع کردی! ✨</p>
-                <button class="btn" onclick="showScreen('birthday')">حالا بریم سراغ کیک... 🕯️</button>
-            </div>
+<!-- LETTER -->
 
-            <div class="hint" id="collectorHint">۵ تا ستاره منتظرتن</div>
-        </div>
+<section id="letter" class="screen">
+  <div class="card">
+
+    <div class="label">FOR NOORA</div>
+
+    <h2 class="title">خب نورا جان</h2>
+
+    <div class="letter-box">
+
+      <h3>
+        اول از همه... <strong>تولدت مبارک!</strong>
+      </h3>
+
+      <p>
+        بالاخره رسید اون روزی که منتظرش بودیم :)
+        <br>
+        یه سال دیگه هم گذشت و امیدوارم
+        <strong>سال جدید زندگیت قشنگ‌تر از قبل</strong>
+        باشه.
+      </p>
+
+      <p>
+        نمی‌خواستم فقط یه «تولدت مبارک» معمولی بگم،
+        برای همین گفتم یه چیز کوچیک درست کنم که وقتی می‌بینیش،
+        <strong>یه حس خوب بگیری</strong>.
+      </p>
+
+      <p>
+        امیدوارم سال جدید زندگیت پر باشه از
+        <strong>اتفاقای خوب، خبرای خوب، آدمای خوب</strong>
+        و کلی لحظه‌ای که بعداً با یادآوریشون لبخند بزنی.
+      </p>
+
+      <p>
+        هرچی آرزوی خوب داری، امیدوارم
+        <strong>کم‌کم یکی‌یکی برسن بهت</strong>.
+      </p>
+
+      <p>
+        خلاصه که...
+        <strong>تولدت مبارک دختر!</strong>
+      </p>
+
     </div>
 
-    <!-- ========== SCREEN 5: BIRTHDAY (CANDLE) ========== -->
-    <div id="birthday" class="screen">
-        <div class="card">
-            <div class="cake" style="font-size:72px;animation:cakeFloat 3s ease-in-out infinite;">🎂</div>
-            <style>
-                @keyframes cakeFloat{
-                    0%,100%{transform:translateY(0) rotate(-1deg);}
-                    50%{transform:translateY(-12px) rotate(1deg);}
-                }
-            </style>
-            <div class="label">🕯️ Make a Wish</div>
-            <h2 class="title">یه آرزو کن...</h2>
-            <p class="subtitle">قبل از هر چیزی،<br>یه آرزوی قشنگ برای خودت بکن.</p>
+    <button class="btn" onclick="showScreen('myWishes')">
+      چندتا چیز دیگه هم هست...
+    </button>
 
-            <div class="candle" onclick="blowCandle()">
-                <div id="flame" class="flame"></div>
-                <div class="candle-body"></div>
-            </div>
+  </div>
+</section>
 
-            <p id="candleHint" class="hint">رو شعله بزن 🕯️</p>
 
-            <div id="cakeMessage" class="cake-message">
-                <h2 class="title">تولدت مبارک نورا! ✨</h2>
-                <p class="subtitle">حالا آرزوت رو نگه دار...<br>کی می‌دونه، شاید امسال سالش باشه! 🤍</p>
-                <br>
-                <button class="btn" onclick="showScreen('galaxy')">یه چیز دیگه هم داریم... 🌌</button>
-            </div>
-        </div>
+<!-- MY WISHES -->
+
+<section id="myWishes" class="screen">
+  <div class="card">
+
+    <div class="label">MY WISHES FOR YOU</div>
+
+    <h2 class="title">چندتا آرزو برای تو</h2>
+
+    <p class="subtitle">
+      روی هر ستاره بزن؛ هرکدوم
+      <strong>یه آرزوی کوچیک از طرف منه</strong>.
+    </p>
+
+    <div class="star-wishes">
+
+      <button class="star-button" onclick="showWish(0,this)">
+        ✦
+      </button>
+
+      <button class="star-button" onclick="showWish(1,this)">
+        ✦
+      </button>
+
+      <button class="star-button" onclick="showWish(2,this)">
+        ✦
+      </button>
+
     </div>
 
-    <!-- ========== SCREEN 6: GALAXY ========== -->
-    <div id="galaxy" class="screen">
-        <div class="card">
-            <div class="label">✦ Just for You ✦</div>
-            <h2 class="title">این کهکشان مال توئه</h2>
-            <p class="subtitle">می‌دونی؟<br>تو وسط قلب همه‌هایی که دوستت دارن جای داری.</p>
+    <div id="wishGift" class="wish-gift"></div>
 
-            <div class="galaxy">
-                <div class="galaxy-ring"></div>
-                <div class="galaxy-ring"></div>
-                <div class="galaxy-ring"></div>
-                <div class="galaxy-center">🌌</div>
-            </div>
+    <button
+      id="myWishNext"
+      class="btn"
+      style="display:none"
+      onclick="showScreen('ownWish')"
+    >
+      حالا نوبت خودته
+    </button>
 
-            <p class="subtitle" style="font-size:13px;margin-top:10px;">تو مرکز این کهکشانی ✨</p>
+  </div>
+</section>
 
-            <button class="btn" onclick="showScreen('final')">آخریشم ببین... ♡</button>
-        </div>
+
+<!-- OWN WISH -->
+
+<section id="ownWish" class="screen">
+  <div class="card">
+
+    <div class="label">YOUR WISH</div>
+
+    <h2 class="title">حالا نوبت خودته</h2>
+
+    <p class="subtitle">
+      چشاتو ببند و برای خودت یه آرزو کن.
+      <br>
+      وقتی آماده شدی روی ستاره بزن.
+    </p>
+
+    <div class="wish-orb" onclick="makeOwnWish()">
+      ✦
     </div>
 
-    <!-- ========== SCREEN 7: FINAL ========== -->
-    <div id="final" class="screen">
-        <div class="card">
-            <div class="final-heart">♡</div>
-            <div class="label">Happy Birthday Noora</div>
-            <div class="final-name">نورا</div>
-
-            <p class="subtitle">
-                ۲۹ شهریور ۱۴۰۵
-                <br><br>
-                خب، این بود یه چیزای کوچیک از طرف من.<br>
-                امیدوارم امروزت عالی باشه،<br>
-                پر از خنده، عشق و چیزای قشنگ.<br><br>
-                تولدت مبارک نورا جان 🤍
-            </p>
-
-            <div class="signature">از طرف ساناز برای نورای عزیزم 🌙</div>
-        </div>
+    <div id="ownWishResult" class="own-wish-result">
+      <strong>آرزو کردی؟</strong>
+      <br>
+      حالا بسپرش به زمان؛ خودش راهشو پیدا می‌کنه.
+      <strong>امیدوارم همین امسال اتفاق بیفته</strong>.
     </div>
+
+    <button
+      id="wishNext"
+      class="btn"
+      style="display:none"
+      onclick="showScreen('birthday')"
+    >
+      حالا بریم سراغ کیک
+    </button>
+
+  </div>
+</section>
+
+
+<!-- BIRTHDAY -->
+
+<section id="birthday" class="screen">
+  <div class="card">
+
+    <div class="cake">🎂</div>
+
+    <div class="label">BIRTHDAY WISH</div>
+
+    <h2 class="title">شمع‌ها رو خاموش کن</h2>
+
+    <p class="subtitle">
+      حالا وقتشه شمع‌های کیک رو خاموش کنی.
+      <br>
+      روی هر شمع بزن تا خاموش بشه.
+    </p>
+
+    <div class="candles">
+
+      <div class="candle" onclick="blowCandle(0)">
+        <div class="flame" id="flame0"></div>
+        <div class="candle-body"></div>
+      </div>
+
+      <div class="candle" onclick="blowCandle(1)">
+        <div class="flame" id="flame1"></div>
+        <div class="candle-body"></div>
+      </div>
+
+      <div class="candle" onclick="blowCandle(2)">
+        <div class="flame" id="flame2"></div>
+        <div class="candle-body"></div>
+      </div>
+
+      <div class="candle" onclick="blowCandle(3)">
+        <div class="flame" id="flame3"></div>
+        <div class="candle-body"></div>
+      </div>
+
+      <div class="candle" onclick="blowCandle(4)">
+        <div class="flame" id="flame4"></div>
+        <div class="candle-body"></div>
+      </div>
+
+    </div>
+
+    <p id="candleHint" class="hint">
+      ۵ تا شمع مونده
+    </p>
+
+    <div id="birthdayResult" class="birthday-result">
+
+      <h2 class="title">
+        تولدت مبارک نورااا!
+      </h2>
+
+      <p class="subtitle">
+        <strong>
+          امیدوارم سال جدید زندگیت یکی از قشنگ‌ترین سال‌هات باشه
+        </strong>.
+      </p>
+
+      <button class="btn" onclick="showScreen('secret')">
+        یه چیز دیگه هم مونده...
+      </button>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- SECRET -->
+
+<section id="secret" class="screen">
+  <div class="card">
+
+    <div style="font-size:45px;margin-bottom:6px;">
+      ✦
+    </div>
+
+    <div class="label">ONE LAST THING</div>
+
+    <h2 class="title">یه پیام مخفی</h2>
+
+    <p class="subtitle">
+      خب تا اینجا اومدی...
+      پس <strong>این یکی رو هم باید ببینی</strong> :)
+    </p>
+
+    <button
+      id="secretButton"
+      class="btn"
+      onclick="revealSecret()"
+    >
+      بازش کن
+    </button>
+
+    <div id="secretMessage" class="secret-message">
+
+      گاهی یه آدم فقط با بودنش می‌تونه
+      <strong>یه گوشه از روزای بقیه رو قشنگ‌تر کنه</strong>.
+
+      <br><br>
+
+      امیدوارم خودت هم بدونی که
+      <strong>لیاقت کلی اتفاق خوب و قشنگ</strong>
+      رو داری.
+
+      <br><br>
+
+      برای امسال فقط امیدوارم
+      <strong>بیشتر بخندی، کمتر غصه بخوری</strong>
+      و به چیزایی که دلت می‌خواد برسی.
+
+      <br><br>
+
+      <strong>تولدت مبارک نورا جان.</strong>
+
+      <br><br>
+
+      <button class="btn" onclick="showScreen('final')">
+        خب... آخرشو ببین ♡
+      </button>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- FINAL -->
+
+<section id="final" class="screen">
+  <div class="card">
+
+    <div class="final-heart">♡</div>
+
+    <div class="label">HAPPY BIRTHDAY</div>
+
+    <div class="final-name">NOORA</div>
+
+    <p class="subtitle">
+
+      ۲۹ شهریور ۱۴۰۵
+
+      <br><br>
+
+      خب نورا، اینم از سورپرایز کوچولوی من برای تو.
+
+      <br><br>
+
+      امیدوارم امروزت پر از
+      <strong>
+        لحظه‌های قشنگ، خنده‌های واقعی و اتفاقایی باشه
+        که مدت‌ها منتظرشون بودی
+      </strong>.
+
+      <br><br>
+
+      امیدوارم وقتی این صفحه رو بستی،
+      <strong>
+        حداقل یه لبخند کوچیک روی لبت مونده باشه
+      </strong>.
+
+      <br><br>
+
+      <strong>تولدت مبارککک!</strong>
+
+    </p>
+
+    <div class="signature-box">
+      از طرف ساناز
+    </div>
+
+  </div>
+</section>
 
 </div>
 
+
 <script>
 
-/* =====================================================
-   GENERATE STARS
-===================================================== */
+let openedEnvelope = false;
+let wishesShown = 0;
+
+const wishes = [
+  "امیدوارم همیشه خبرای خوب سر راهت باشن.",
+  "امیدوارم امسال کلی دلیل برای خندیدن داشته باشی.",
+  "امیدوارم به چیزایی که واقعاً دوست داری برسی."
+];
+
+let candlesLeft = 5;
+
+function showScreen(id){
+
+  document
+    .querySelectorAll(".screen")
+    .forEach(s => s.classList.remove("active"));
+
+  const target = document.getElementById(id);
+
+  if(target){
+    target.classList.add("active");
+  }
+
+}
 
 function generateStars(){
-    const bg = document.querySelector('.bg');
-    for(let i=0;i<80;i++){
-        const star = document.createElement('div');
-        star.className = 'star';
-        const size = 1 + Math.random() * 2.5;
-        star.style.width = size + 'px';
-        star.style.height = size + 'px';
-        star.style.left = Math.random() * 100 + '%';
-        star.style.top = Math.random() * 100 + '%';
-        star.style.setProperty('--duration', (2 + Math.random() * 4) + 's');
-        star.style.animationDelay = (Math.random() * 5) + 's';
-        star.style.opacity = 0.2 + Math.random() * 0.5;
-        bg.appendChild(star);
-    }
+
+  const bg = document.querySelector(".bg");
+
+  for(let i=0;i<65;i++){
+
+    const star = document.createElement("div");
+
+    star.className = "bg-star";
+
+    const size = 1 + Math.random() * 2.5;
+
+    star.style.width = size + "px";
+    star.style.height = size + "px";
+
+    star.style.left = Math.random() * 100 + "%";
+    star.style.top = Math.random() * 100 + "%";
+
+    star.style.setProperty(
+      "--duration",
+      (2 + Math.random() * 4) + "s"
+    );
+
+    star.style.animationDelay =
+      Math.random() * 5 + "s";
+
+    bg.appendChild(star);
+
+  }
+
 }
+
+function openEnvelope(){
+
+  if(openedEnvelope) return;
+
+  openedEnvelope = true;
+
+  document
+    .getElementById("envelopeBox")
+    .classList.add("open");
+
+  setTimeout(() => {
+    showScreen("letter");
+  },900);
+
+}
+
+function showWish(index,button){
+
+  if(button.classList.contains("used")) return;
+
+  button.classList.add("used");
+
+  const box =
+    document.getElementById("wishGift");
+
+  box.innerText = wishes[index];
+
+  box.classList.remove("show");
+
+  void box.offsetWidth;
+
+  box.classList.add("show");
+
+  wishesShown++;
+
+  if(wishesShown === 3){
+
+    document
+      .getElementById("myWishNext")
+      .style.display = "inline-block";
+
+  }
+
+}
+
+function makeOwnWish(){
+
+  const result =
+    document.getElementById("ownWishResult");
+
+  if(result.classList.contains("show")) return;
+
+  result.classList.add("show");
+
+  document
+    .getElementById("wishNext")
+    .style.display = "inline-block";
+
+}
+
+function blowCandle(index){
+
+  const flame =
+    document.getElementById("flame" + index);
+
+  if(flame.classList.contains("off")) return;
+
+  flame.classList.add("off");
+
+  candlesLeft--;
+
+  if(candlesLeft > 0){
+
+    document
+      .getElementById("candleHint")
+      .innerText =
+        candlesLeft + " تا شمع مونده";
+
+  }
+
+  if(candlesLeft === 0){
+
+    document
+      .getElementById("candleHint")
+      .innerText =
+        "همه شمع‌ها خاموش شدن";
+
+    setTimeout(() => {
+
+      document
+        .getElementById("birthdayResult")
+        .classList.add("show");
+
+    },500);
+
+  }
+
+}
+
+function revealSecret(){
+
+  document
+    .getElementById("secretButton")
+    .style.display = "none";
+
+  document
+    .getElementById("secretMessage")
+    .classList.add("show");
+
+}
+
+function createStarFall(){
+
+  const container =
+    document.getElementById("starfall");
+
+  for(let i=0;i<35;i++){
+
+    const star =
+      document.createElement("div");
+
+    star.className = "star-piece";
+
+    star.innerText = "✦";
+
+    star.style.left =
+      Math.random() * 100 + "%";
+
+    star.style.setProperty(
+      "--duration",
+      (3 + Math.random() * 3) + "s"
+    );
+
+    star.style.animationDelay =
+      Math.random() * 2 + "s";
+
+    container.appendChild(star);
+
+    setTimeout(() => star.remove(),7000);
+
+  }
+
+}
+
 generateStars();
 
-/* =====================================================
-   GENERATE SHOOTING STARS
-===================================================== */
+</script>
 
-function generateShootingStars(){
-    const bg = document.querySelector('.bg');
-    for(let i=0;i<5;i++){
-        const star = document.createElement('div');
-        star.className = 'shooting-star';
-        star.style.left = (10 + Math.random() * 60) + '%';
-        star.style.top = (5 + Math.random() * 30) + '%';
-        star.style.setProperty('--duration', (8 + Math.random() * 12) + 's
+</body>
+           </html>
