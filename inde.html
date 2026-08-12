@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Noora</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Estedad:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+  min-height:100vh;
+  overflow:hidden;
+  background:#08060b;
+  color:#fff;
+  font-family:"Estedad",Tahoma,sans-serif;
+}
+
+.bg{
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  z-index:0;
+  background:radial-gradient(circle at 50% 45%,#251824 0%,#110b13 45%,#08060b 82%);
+}
+
+.glow{
+  position:absolute;
+  width:430px;
+  height:430px;
+  border-radius:50%;
+  filter:blur(120px);
+  opacity:.22;
+  animation:glowMove 14s ease-in-out infinite alternate;
+}
+
+.glow:nth-child(1){
+  top:-230px;
+  right:-170px;
+  background:#b85d8d;
+}
+
+.glow:nth-child(2){
+  bottom:-240px;
+  left:-180px;
+  background:#5750a0;
+  animation-delay:3s;
+}
+
+.glow:nth-child(3){
+  width:280px;
+  height:280px;
+  top:40%;
+  left:40%;
+  background:#a45f8b;
+  opacity:.07;
+  animation-delay:6s;
+}
+
+@keyframes glowMove{
+  from{transform:translate3d(0,0,0) scale(1)}
+  to{transform:translate3d(35px,25px,0) scale(1.1)}
+}
+
+.vignette{
+  position:fixed;
+  inset:0;
+  z-index:9;
+  pointer-events:none;
+  background:radial-gradient(ellipse at center,transparent 42%,rgba(0,0,0,.42) 100%);
+}
+
+.container{
+  position:relative;
+  z-index:2;
+  width:100%;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+}
+
+.screen{
+  display:none;
+  width:100%;
+  max-width:700px;
+  max-height:94vh;
+  overflow-y:auto;
+  scrollbar-width:none;
+  animation:screenIn .8s cubic-bezier(.22,1,.36,1);
+}
+
+.screen::-webkit-scrollbar{display:none}
+.screen.active{display:block}
+
+@keyframes screenIn{
+  from{opacity:0;transform:translateY(18px) scale(.985);filter:blur(5px)}
+  to{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}
+}
+
+.card{
+  position:relative;
+  overflow:hidden;
+  padding:40px 30px 44px;
+  border-radius:48px;
+  text-align:center;
+  background:rgba(255,255,255,.035);
+  border:1px solid rgba(255,255,255,.07);
+  backdrop-filter:blur(25px);
+  -webkit-backdrop-filter:blur(25px);
+  box-shadow:0 30px 80px rgba(0,0,0,.5),inset 0 0 80px rgba(255,255,255,.015);
+  animation:cardFloat 7s ease-in-out infinite;
+}
+
+@keyframes cardFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-2px)}
+}
+
+.card:before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:10%;
+  right:10%;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(230,190,210,.35),transparent);
+}
+
+.label{
+  font-family:"Playfair Display",serif;
+  font-size:10px;
+  letter-spacing:5px;
+  color:#c8a8b8;
+  direction:ltr;
+  opacity:.7;
+}
+
+.glow-name,.final-name{
+  font-family:"Playfair Display",serif;
+}
+
+#intro .glow-name{
+  font-size:56px;
+  font-weight:500;
+  letter-spacing:2px;
+  line-height:1.1;
+  direction:ltr;
+  margin:16px 0 10px;
+  background:linear-gradient(120deg,#fff,#d7b5c9,#fff);
+  background-size:200% auto;
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  animation:shine 6s linear infinite;
+}
+
+@keyframes shine{
+  from{background-position:200% center}
+  to{background-position:-200% center}
+}
+
+.title{
+  font-family:"Estedad",Tahoma,sans-serif;
+  font-size:28px;
+  font-weight:400;
+  color:#f5e4ee;
+  margin:10px 0 12px;
+}
+
+.subtitle{
+  font-family:"Estedad",Tahoma,sans-serif;
+  color:#c8b8c0;
+  font-size:14px;
+  line-height:2.1;
+  font-weight:300;
+}
+
+.hint{
+  font-family:"Estedad",Tahoma,sans-serif;
+  color:#887883;
+  font-size:12px;
+  margin-top:14px;
+}
+
+strong{
+  color:#f5e4ee;
+  font-weight:600;
+}
+
+.btn{
+  margin-top:18px;
+  padding:14px 35px;
+  border-radius:50px;
+  border:1px solid rgba(220,180,200,.15);
+  background:rgba(255,255,255,.035);
+  color:#f0e8ee;
+  font-family:"Estedad",Tahoma,sans-serif;
+  font-size:14px;
+  cursor:pointer;
+  transition:transform .45s cubic-bezier(.22,1,.36,1),background .45s ease,box-shadow .45s ease;
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+  background:rgba(255,255,255,.08);
+  box-shadow:0 12px 35px rgba(150,80,120,.15);
+}
+
+.click-box{
+  width:150px;
+  height:150px;
+  margin:28px auto 10px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  background:radial-gradient(circle,rgba(235,200,220,.18),rgba(255,255,255,.035) 60%,transparent 70%);
+  border:1px solid rgba(220,180,200,.14);
+  box-shadow:0 0 45px rgba(190,110,150,.12),inset 0 0 30px rgba(255,255,255,.025);
+  transition:transform .5s ease,box-shadow .5s ease;
+}
+
+.click-box:hover{
+  transform:scale(1.06);
+  box-shadow:0 0 65px rgba(210,140,180,.2),inset 0 0 35px rgba(255,255,255,.04);
+}
+
+.click-text{
+  font-family:"Estedad",Tahoma,sans-serif;
+  font-size:18px;
+  color:#ead6e0;
+}
+
+.click-small{
+  font-family:"Estedad",Tahoma,sans-serif;
+  font-size:11px;
+  color:#887883;
+  margin-top:12px;
+}
+
+.letter-box{
+  text-align:right;
+  padding:22px 22px 18px;
+  border-radius:25px;
+  background:rgba(255,255,255,.045);
+  border:1px solid rgba(255,255,255,.08);
+  font-family:"Estedad",Tahoma,sans-serif;
+}
+
+.letter-box h3{
+  font-size:21px;
+  color:#f1dce6;
+  margin-bottom:10px;
+}
+
+.letter-box p{
+  color:#d7cbd2;
+  font-size:14px;
+  line-height:2.2;
+  margin-bottom:8px;
+}
+
+.star-wishes{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:13px;
+  max-width:390px;
+  margin:22px auto;
+}
+
+.star-button{
+  width:65px;
+  height:65px;
+  margin:auto;
+  border-radius:50%;
+  border:1px solid rgba(232,193,215,.18);
+  background:radial-gradient(circle,rgba(232,199,216,.2),rgba(255,255,255,.025));
+  color:#e8cada;
+  font-size:25px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:transform .5s cubic-bezier(.22,1,.36,1),box-shadow .5s ease,opacity .5s ease;
+}
+
+.star-button:hover{
+  transform:translateY(-5px) scale(1.06);
+  box-shadow:0 0 28px rgba(210,150,185,.22);
+}
+
+.star-button.used{
+  opacity:.25;
+  transform:scale(.85);
+  pointer-events:none;
+}
+
+.wish-gift{
+  display:none;
+  max-width:400px;
+  margin:10px auto 0;
+  padding:14px 18px;
+  border-radius:18px;
+  background:rgba(255,255,255,.045);
+  border:1px solid rgba(255,255,255,.07);
+  color:#e8dce2;
+  font-size:13px;
+  line-height:1.9;
+  animation:messageIn .65s ease;
+  font-family:"Estedad",Tahoma,sans-serif;
+}
+
+.wish-gift.show{display:block}
+
+@keyframes messageIn{
+  from{opacity:0;transform:translateY(14px);filter:blur(4px)}
+  to{opacity:1;transform:translateY(0);filter:blur(0)}
+}
+
+/* دایره آرزو */
+.wish-orb{
+  width:105px;
+  height:105px;
+  margin:22px auto 14px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:43px;
+  cursor:pointer;
+  background:linear-gradient(145deg,#e7b2c9,#b65c82 52%,#873b5d);
+  border:1px solid rgba(255,220,235,.38);
+  box-shadow:0 0 24px rgba(180,80,125,.28),inset 0 0 10px rgba(255,255,255,.15);
+  animation:orbFloat 3s ease-in-out infinite;
+  transition:transform .5s ease;
+  color:#fff;
+}
+
+.wish-orb:hover{
+  transform:scale(1.05);
+}
+
+.wish-orb span{
+  display:block;
+  transform:translateY(-2px);
+  color:#fff;
+  text-shadow:2px 3px 0 rgba(92,38,62,.45),0 0 10px rgba(255,240,248,.7);
+  filter:drop-shadow(0 3px 2px rgba(50,20,35,.35));
+}
+
+@keyframes orbFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-7px)}
+}
+
+.own-wish-result{
+  display:none;
+  margin-top:14px;
+  padding:16px 18px;
+  border-radius:20px;
+  background:rgba(255,255,255,.045);
+  color:#ead9e2;
+  line-height:2.1;
+  font-size:13px;
+  font-family:"Estedad",Tahoma,sans-serif;
+  animation:messageIn .7s ease;
+}
+
+.own-wish-result.show{display:block}
+
+.cake{
+  font-size:70px;
+  margin:4px 0 0;
+  animation:cakeFloat 3.5s ease-in-out infinite;
+}
+
+@keyframes cakeFloat{
+  0%,100%{transform:translateY(0) rotate(-1deg)}
+  50%{transform:translateY(-8px) rotate(1deg)}
+}
+
+.candles{
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  margin:18px 0 6px;
+}
+
+.candle{
+  width:25px;
+  height:65px;
+  position:relative;
+  cursor:pointer;
+}
+
+.candle-body{
+  position:absolute;
+  bottom:0;
+  width:25px;
+  height:45px;
+  border-radius:5px;
+  background:linear-gradient(90deg,#b97998,#f2dce5,#c786a3);
+  box-shadow:inset 0 0 5px rgba(255,255,255,.3),0 5px 12px rgba(0,0,0,.2);
+}
+
+.flame{
+  position:absolute;
+  width:16px;
+  height:23px;
+  top:-5px;
+  left:4px;
+  border-radius:50%;
+  background:radial-gradient(ellipse at 50% 80%,#fff8e1,#ffd17b 35%,#ff9d5d 75%);
+  box-shadow:0 0 18px #ffc56c,0 0 35px rgba(255,180,80,.35);
+  animation:flicker .6s infinite alternate;
+}
+
+.flame.off{display:none}
+
+@keyframes flicker{
+  from{transform:scale(1) rotate(-3deg)}
+  to{transform:scale(1.08,.95) rotate(3deg)}
+}
+
+.birthday-result{
+  display:none;
+  animation:messageIn .8s ease;
+}
+
+.birthday-result.show{display:block}
+
+.secret-message{
+  display:none;
+  margin-top:18px;
+  padding:20px 20px 14px;
+  border-radius:24px;
+  background:rgba(255,255,255,.045);
+  color:#d8ccd3;
+  font-size:14px;
+  line-height:2.2;
+  font-family:"Estedad",Tahoma,sans-serif;
+}
+
+.secret-message.show{
+  display:block;
+  animation:messageIn .8s ease;
+}
+
+.final-heart{
+  font-size:40px;
+  color:#e2bacd;
+  animation:heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.15)}
+}
+
+.final-name{
+  font-size:76px;
+  font-weight:500;
+  letter-spacing:2px;
+  direction:ltr;
+  margin:14px 0 10px;
+  background:linear-gradient(120deg,#fff,#dfb5c9,#fff);
+  background-size:200% auto;
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  animation:shine 7s linear infinite;
+}
+
+.signature-box{
+  width:fit-content;
+  min-width:175px;
+  margin:32px auto 0;
+  padding:13px 30px 11px;
+  position:relative;
+  border:1px solid rgba(220,180,200,.16);
+  border-radius:18px 6px 18px 6px;
+  background:rgba(255,255,255,.025);
+  color:#cdb5c2;
+  font-family:"Estedad",Tahoma,sans-serif;
+  font-size:14px;
+  box-shadow:0 8px 30px rgba(0,0,0,.18),inset 0 0 20px rgba(255,255,255,.018);
+}
+
+/* پیام دوستان */
+.friend-msg{
+  display:none;
+  text-align:right;
+  padding:10px 6px;
+  font-family:"Estedad",Tahoma,sans-serif;
+}
+
+.friend-msg.active{
+  display:block;
+  animation:friendIn .7s ease;
+}
+
+@keyframes friendIn{
+  from{opacity:0;transform:translateY(15px);filter:blur(4px)}
+  to{opacity:1;transform:translateY(0);filter:blur(0)}
+}
+
+.friend-msg .sender{
+  font-size:15px;
+  color:#e8cada;
+  font-weight:600;
+  margin-bottom:8px;
+}
+
+.friend-msg .msg-body{
+  font-size:15px;
+  color:#d7cbd2;
+  line-height:2.3;
+}
+
+.friends-nav{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  margin-top:18px;
+  flex-wrap:wrap;
+}
+
+/* پیام نهایی */
+.final-thanks{
+  display:none;
+  text-align:center;
+  animation:messageIn .9s ease;
+}
+
+.final-thanks.show{
+  display:block;
+}
+
+.final-thanks .thanks-title{
+  font-size:22px;
+  color:#f0e2e9;
+  font-weight:400;
+  margin-bottom:12px;
+}
+
+.final-thanks .thanks-text{
+  color:#d8ccd3;
+  font-size:13px;
+  line-height:2.2;
+  font-weight:300;
+}
+
+/* متن خاکستری بالای امضا */
+.thanks-gray{
+  color:#887883;
+  font-size:12px;
+  line-height:2.1;
+  margin-top:24px;
+  font-weight:300;
+}
+
+/* امضای خیلی ریز */
+.love-signature{
+  margin-top:10px;
+  color:#8f7b87;
+  font-family:"Playfair Display","Estedad",serif;
+  font-size:9px;
+  letter-spacing:1.5px;
+  opacity:.75;
+}
+
+/* محو شدن کادر */
+.fade-out{
+  animation:fadeOut .9s ease forwards !important;
+}
+
+@keyframes fadeOut{
+  0%{opacity:1;transform:scale(1)}
+  100%{opacity:0;transform:scale(.92);filter:blur(6px)}
+}
+
+.bg-star{
+  position:fixed;
+  border-radius:50%;
+  background:rgba(255,255,255,.7);
+  z-index:1;
+  pointer-events:none;
+  animation:twinkle var(--duration) ease-in-out infinite alternate;
+}
+
+@keyframes twinkle{
+  from{opacity:.15;transform:scale(.7)}
+  to{opacity:.8;transform:scale(1.2)}
+}
+
+@media(max-width:600px){
+
+  .container{padding:14px}
+  .screen{max-height:96vh}
+  .card{padding:32px 18px 44px;border-radius:34px}
+  #intro .glow-name{font-size:46px}
+  .final-name{font-size:56px}
+  .click-box{width:125px;height:125px}
+  .click-text{font-size:16px}
+  .letter-box{padding:18px 14px}
+  .star-wishes{gap:8px}
+  .star-button{width:56px;height:56px;font-size:22px}
+  .btn{margin-top:16px;padding:12px 28px;font-size:13px}
+  .title{font-size:24px}
+  .subtitle{font-size:13px;line-height:2}
+  .friend-msg .msg-body{font-size:14px;line-height:2.2}
+  .wish-orb{width:100px;height:100px}
+  .final-thanks .thanks-title{font-size:20px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg">
+  <div class="glow"></div>
+  <div class="glow"></div>
+  <div class="glow"></div>
+</div>
+
+<div class="vignette"></div>
+
+<div class="container">
+
+<section id="intro" class="screen active">
+  <div class="card">
+    <div class="label">A SMALL GIFT FOR</div>
+    <div class="glow-name">NOORA</div>
+    <div style="color:#b8a0b0;font-size:13px;margin-bottom:12px;font-family:'Estedad',Tahoma,sans-serif;">۲۹ شهریور ۱۴۰۵</div>
+    <button class="btn" onclick="showScreen('clickStart')">بزن بریم</button>
+  </div>
+</section>
+
+<section id="clickStart" class="screen">
+  <div class="card">
+    <div class="label">SOMETHING FOR YOU</div>
+    <h2 class="title">یه چیز کوچیک برات دارم</h2>
+    <p class="subtitle">آماده‌ای؟</p>
+
+    <div class="click-box" onclick="showScreen('letter')">
+      <span class="click-text">کلیک کن</span>
+    </div>
+
+    <div class="click-small">روی دایره بزن</div>
+  </div>
+</section>
+
+<section id="letter" class="screen">
+  <div class="card">
+
+    <div class="label">FOR NOORA</div>
+
+    <h2 class="title">خب نورا جان</h2>
+
+    <div class="letter-box">
+
+      <h3>اول از همه... <strong>تولدت مبارک!</strong></h3>
+
+      <p>
+        بالاخره رسید اون روزی که منتظرش بودیم.<br>
+        یه سال دیگه هم گذشت و امیدوارم
+        <strong>سال جدید زندگیت قشنگ‌تر از قبل</strong> باشه.
+      </p>
+
+      <p>
+        نمی‌خواستم فقط یه «تولدت مبارک» معمولی بگم،
+        برای همین گفتم یه چیز کوچیک درست کنم که وقتی می‌بینیش،
+        <strong>یه حس خوب بگیری</strong>.
+      </p>
+
+      <p>
+        امیدوارم سال جدید زندگیت پر باشه از
+        <strong>اتفاقای خوب، خبرای خوب، آدمای خوب</strong>
+        و کلی لحظه‌ای که بعداً با یادآوریشون لبخند بزنی.
+      </p>
+
+      <p>
+        هرچی آرزوی خوب داری، امیدوارم
+        <strong>کم‌کم یکی‌یکی برسن بهت</strong>.
+      </p>
+
+      <p>
+        خلاصه که... <strong>تولدت مبارک دختر!</strong>
+      </p>
+
+    </div>
+
+    <button class="btn" onclick="showScreen('myWishes')">
+      چندتا چیز دیگه هم هست...
+    </button>
+
+  </div>
+</section>
+
+<section id="myWishes" class="screen">
+  <div class="card">
+
+    <div class="label">MY WISHES FOR YOU</div>
+
+    <h2 class="title">چندتا آرزو برای تو</h2>
+
+    <p class="subtitle">
+      روی هر ستاره بزن؛ هرکدوم
+      <strong>یه آرزوی کوچیک از طرف منه</strong>.
+    </p>
+
+    <div class="star-wishes">
+      <button class="star-button" onclick="showWish(0,this)">✦</button>
+      <button class="star-button" onclick="showWish(1,this)">✦</button>
+      <button class="star-button" onclick="showWish(2,this)">✦</button>
+    </div>
+
+    <div id="wishGift" class="wish-gift"></div>
+
+    <button id="myWishNext" class="btn" style="display:none" onclick="showScreen('ownWish')">
+      حالا نوبت خودته
+    </button>
+
+  </div>
+</section>
+
+<section id="ownWish" class="screen">
+  <div class="card">
+
+    <div class="label">YOUR WISH</div>
+
+    <h2 class="title">حالا نوبت خودته</h2>
+
+    <p class="subtitle">
+      چشاتو ببند و برای خودت یه آرزو کن.<br>
+      وقتی آماده شدی روی ستاره بزن.
+    </p>
+
+    <div class="wish-orb" onclick="makeOwnWish()">
+      <span>✦</span>
+    </div>
+
+    <div id="ownWishResult" class="own-wish-result">
+      <strong>آرزو کردی؟</strong><br>
+      حالا بسپرش به زمان؛ خودش راهشو پیدا می‌کنه.
+      <strong>امیدوارم همین امسال اتفاق بیفته</strong>.
+    </div>
+
+    <button id="wishNext" class="btn" style="display:none" onclick="showScreen('birthday')">
+      حالا بریم سراغ کیک
+    </button>
+
+  </div>
+</section>
+
+<section id="birthday" class="screen">
+  <div class="card">
+
+    <div class="cake">🎂</div>
+
+    <div class="label">BIRTHDAY WISH</div>
+
+    <h2 class="title">شمع‌ها رو خاموش کن</h2>
+
+    <p class="subtitle">
+      حالا وقتشه شمع‌های کیک رو خاموش کنی.<br>
+      روی هر شمع بزن تا خاموش بشه.
+    </p>
+
+    <div class="candles">
+
+      <div class="candle" onclick="blowCandle(0)">
+        <div class="flame" id="flame0"></div>
+        <div class="candle-body"></div>
+      </div>
+
+      <div class="candle" onclick="blowCandle(1)">
+        <div class="flame" id="flame1"></div>
+        <div class="candle-body"></div>
+      </div>
+
+      <div class="candle" onclick="blowCandle(2)">
+        <div class="flame" id="flame2"></div>
+        <div class="candle-body"></div>
+      </div>
+
+      <div class="candle" onclick="blowCandle(3)">
+        <div class="flame" id="flame3"></div>
+        <div class="candle-body"></div>
+      </div>
+
+      <div class="candle" onclick="blowCandle(4)">
+        <div class="flame" id="flame4"></div>
+        <div class="candle-body"></div>
+      </div>
+
+    </div>
+
+    <p id="candleHint" class="hint">۵ تا شمع مونده</p>
+
+    <div id="birthdayResult" class="birthday-result">
+
+      <h2 class="title">تولدت مبارک نورااا!</h2>
+
+      <p class="subtitle">
+        <strong>
+          امیدوارم سال جدید زندگیت یکی از قشنگ‌ترین سال‌هات باشه
+        </strong>.
+      </p>
+
+      <button class="btn" onclick="showScreen('secret')">
+        یه چیز دیگه هم مونده...
+      </button>
+
+    </div>
+
+  </div>
+</section>
+
+<section id="secret" class="screen">
+  <div class="card">
+
+    <div style="font-size:45px;margin-bottom:6px;">✦</div>
+
+    <div class="label">ONE LAST THING</div>
+
+    <h2 class="title">یه پیام مخفی</h2>
+
+    <p class="subtitle">
+      خب تا اینجا اومدی...
+      پس <strong>این یکی رو هم باید ببینی</strong>.
+    </p>
+
+    <button id="secretButton" class="btn" onclick="revealSecret()">
+      بازش کن
+    </button>
+
+    <div id="secretMessage" class="secret-message">
+
+      گاهی یه آدم فقط با بودنش می‌تونه
+      <strong>یه گوشه از روزای بقیه رو قشنگ‌تر کنه</strong>.
+
+      <br><br>
+
+      امیدوارم خودت هم بدونی که
+      <strong>لیاقت کلی اتفاق خوب و قشنگ</strong> رو داری.
+
+      <br><br>
+
+      برای امسال فقط امیدوارم
+      <strong>بیشتر بخندی، کمتر غصه بخوری</strong>
+      و به چیزایی که دلت می‌خواد برسی.
+
+      <br><br>
+
+      <strong>تولدت مبارک نورا جان.</strong>
+
+      <br><br>
+
+      <button class="btn" onclick="showScreen('final')">
+        خب... آخرشو ببین
+      </button>
+
+    </div>
+
+  </div>
+</section>
+
+<section id="final" class="screen">
+  <div class="card">
+
+    <div class="final-heart">♡</div>
+
+    <div class="label">HAPPY BIRTHDAY</div>
+
+    <div class="final-name">NOORA</div>
+
+    <p class="subtitle">
+
+      ۲۹ شهریور ۱۴۰۵
+
+      <br><br>
+
+      خب نورا، اینم از سورپرایز کوچولوی من برای تو.
+
+      <br><br>
+
+      امیدوارم امروزت پر از
+      <strong>
+        لحظه‌های قشنگ، خنده‌های واقعی و اتفاقایی باشه که مدت‌ها منتظرشون بودی
+      </strong>.
+
+      <br><br>
+
+      امیدوارم وقتی این صفحه رو بستی،
+      <strong>
+        حداقل یه لبخند کوچیک روی لبت مونده باشه
+      </strong>.
+
+      <br><br>
+
+      <strong>تولدت مبارککک!</strong>
+
+    </p>
+
+    <div class="signature-box">
+      از طرف ساناز
+    </div>
+
+    <button class="btn" onclick="showScreen('friendsMessages')" style="margin-top:22px;">
+      پیام بچه‌ها رو هم ببین
+    </button>
+
+  </div>
+</section>
+
+<section id="friendsMessages" class="screen">
+
+  <div class="card" id="friendsCard">
+
+    <div class="label">MESSAGES FOR NOORA</div>
+
+    <h2 class="title">پیام بچه‌ها</h2>
+
+    <p class="subtitle">
+      هرکی یه چیزی گفته برات...
+    </p>
+
+    <div id="friendMsg0" class="friend-msg active">
+
+      <div class="sender">سارینا</div>
+
+      <div class="msg-body">
+        سلام عشق دلم نورای خفن<br>
+        تولدت خیلی مبارک باشه خیلی دوستت دارم خوشحالم یه سال دیگه هم دارم میشناسمت و کنارتم<br>
+        امیدوارم دوستیمون پایدار باشه خانم خوشگله<br>
+        فاراب/سارینا
+      </div>
+
+    </div>
+
+    <div id="friendMsg1" class="friend-msg">
+
+      <div class="sender">حنا</div>
+
+      <div class="msg-body">
+        نورای عزیزم تولدت مبارک<br>
+        ایشالله به تموم آرزوهات برسی همیشه لبخند رو لبت باشه
+      </div>
+
+    </div>
+
+    <div id="friendCounter" class="hint">
+      پیام ۱ از ۲
+    </div>
+
+    <div class="friends-nav">
+
+      <button id="friendNext" class="btn" onclick="nextFriendMessage()">
+        پیام بعدی
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- پیام نهایی -->
+<section id="thanksScreen" class="screen">
+
+  <div class="card">
+
+    <div class="title">
+      ممنون که تا آخرش اومدی
+    </div>
+
+    <p class="thanks-gray">
+      امیدوارم این چند دقیقه کوچیک، یه حس خوب برات ساخته باشه.
+    </p>
+
+    <div class="love-signature">
+      ساخته شده با عشق برای نورا
+    </div>
+
+  </div>
+
+</section>
+
+</div>
+
+<script>
+
+function showScreen(id){
+
+  document.querySelectorAll(".screen").forEach(screen=>{
+    screen.classList.remove("active");
+  });
+
+  const target=document.getElementById(id);
+
+  if(target){
+    target.classList.remove("fade-out");
+    target.classList.add("active");
+    target.scrollTop=0;
+  }
+
+}
+
+const wishes=[
+
+  "امیدوارم امسال بیشتر از همیشه دلت آروم باشه و اتفاقایی بیفته که واقعاً خوشحالت کنه.",
+
+  "امیدوارم روزات پر از خبرای خوب، لحظه‌های قشنگ و اتفاقایی بشه که دلت رو خوشحال کنه.",
+
+  "امیدوارم امسال پر باشه از آدمای درست، خاطره‌های خوب و لحظه‌هایی که دلت نمی‌خواد تموم بشن."
+
+];
+
+let usedWishes=0;
+
+function showWish(index,button){
+
+  const gift=document.getElementById("wishGift");
+
+  gift.innerHTML=wishes[index];
+
+  gift.classList.remove("show");
+
+  void gift.offsetWidth;
+
+  gift.classList.add("show");
+
+  button.classList.add("used");
+
+  usedWishes++;
+
+  if(usedWishes>=3){
+    document.getElementById("myWishNext").style.display="inline-block";
+  }
+
+}
+
+function makeOwnWish(){
+
+  document.getElementById("ownWishResult").classList.add("show");
+
+  document.getElementById("wishNext").style.display="inline-block";
+
+}
+
+let candlesLeft=5;
+
+function blowCandle(index){
+
+  const flame=document.getElementById("flame"+index);
+
+  if(!flame || flame.classList.contains("off")) return;
+
+  flame.classList.add("off");
+
+  candlesLeft--;
+
+  const hint=document.getElementById("candleHint");
+
+  if(candlesLeft>0){
+
+    hint.textContent=candlesLeft+" تا شمع مونده";
+
+  }else{
+
+    hint.textContent="همه‌ی شمع‌ها خاموش شدن";
+
+    setTimeout(()=>{
+
+      document.getElementById("birthdayResult").classList.add("show");
+
+    },500);
+
+  }
+
+}
+
+function revealSecret(){
+
+  document.getElementById("secretMessage").classList.add("show");
+
+  document.getElementById("secretButton").style.display="none";
+
+}
+
+let currentFriend=0;
+
+const totalFriends=2;
+
+let friendTimer=null;
+
+function nextFriendMessage(){
+
+  document.getElementById("friendNext").style.display="none";
+
+  document.getElementById("friendCounter").style.display="none";
+
+  document
+    .getElementById("friendMsg"+currentFriend)
+    .classList.remove("active");
+
+  currentFriend++;
+
+  if(currentFriend<totalFriends){
+
+    document
+      .getElementById("friendMsg"+currentFriend)
+      .classList.add("active");
+
+    /*
+      پیام آخر ۲ ثانیه بعد شروع به محو شدن می‌کند
+    */
+
+    if(currentFriend===totalFriends-1){
+
+      friendTimer=setTimeout(()=>{
+
+        const card=document.getElementById("friendsCard");
+
+        card.classList.add("fade-out");
+
+        setTimeout(()=>{
+
+          document
+            .getElementById("friendsMessages")
+            .classList.remove("active");
+
+          showScreen("thanksScreen");
+
+        },900);
+
+      },2000);
+
+    }
+
+  }
+
+}
+
+/* ستاره‌های پس‌زمینه */
+
+for(let i=0;i<25;i++){
+
+  const star=document.createElement("div");
+
+  star.className="bg-star";
+
+  const size=Math.random()*2+1;
+
+  star.style.width=size+"px";
+
+  star.style.height=size+"px";
+
+  star.style.left=Math.random()*100+"%";
+
+  star.style.top=Math.random()*100+"%";
+
+  star.style.setProperty(
+    "--duration",
+    (2+Math.random()*4)+"s"
+  );
+
+  star.style.animationDelay=Math.random()*4+"s";
+
+  document.body.appendChild(star);
+
+}
+
+</script>
+
+</body>
+  </html>
