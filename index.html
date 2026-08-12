@@ -2,214 +2,242 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>For Noora ♡</title>
 
 <style>
-*{box-sizing:border-box}
+
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600&display=swap');
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
 
 body{
-margin:0;
-background:#faf6f8;
-color:#332c31;
-font-family:Arial,sans-serif;
+    margin:0;
+    background:#0d0a12;
+    color:#fff;
+    font-family:'Vazirmatn',sans-serif;
+    overflow-x:hidden;
 }
 
-.page{
-min-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-padding:25px;
+/* ستاره ها */
+
+.stars{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:0;
 }
 
-.hero{text-align:center}
-
-.small{
-font-size:12px;
-letter-spacing:5px;
-color:#a08d97;
-direction:ltr;
+.star{
+    position:absolute;
+    width:3px;
+    height:3px;
+    background:white;
+    border-radius:50%;
+    opacity:.5;
+    animation:twinkle 3s infinite ease-in-out;
 }
 
-h1{
-font-family:Georgia,serif;
-font-size:clamp(70px,18vw,130px);
-font-weight:400;
-line-height:.9;
-margin:25px 0 15px;
-direction:ltr;
+@keyframes twinkle{
+    0%,100%{opacity:.15;transform:scale(.7)}
+    50%{opacity:.9;transform:scale(1.3)}
 }
 
-.date{
-direction:ltr;
-letter-spacing:4px;
-color:#907c87;
+/* صفحه اول */
+
+#opening{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    z-index:1;
+    padding:30px;
 }
 
-button{
-margin-top:35px;
-padding:15px 30px;
-border:0;
-border-radius:30px;
-background:#332c31;
-color:white;
-font-size:15px;
-cursor:pointer;
+.hero{
+    text-align:center;
+    animation:appear 1.5s ease;
 }
 
-#gift{display:none}
+@keyframes appear{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
 
-.wrap{
-max-width:850px;
-margin:auto;
-padding:70px 22px;
+.mini{
+    font-size:11px;
+    letter-spacing:6px;
+    color:#d9b8ca;
+    direction:ltr;
+}
+
+.noora{
+    font-family:Georgia,serif;
+    font-weight:400;
+    font-size:clamp(75px,20vw,150px);
+    line-height:.8;
+    margin:35px 0;
+    direction:ltr;
+    background:linear-gradient(
+        90deg,
+        #fff,
+        #eac5d8,
+        #fff
+    );
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.birth{
+    font-size:13px;
+    letter-spacing:5px;
+    color:#bfaab7;
+    direction:ltr;
+}
+
+.open{
+    margin-top:45px;
+    padding:16px 35px;
+    border-radius:50px;
+    border:1px solid #d8b6c9;
+    background:#ffffff0d;
+    color:white;
+    font-family:inherit;
+    font-size:14px;
+    cursor:pointer;
+    backdrop-filter:blur(10px);
+    transition:.4s;
+}
+
+.open:hover{
+    background:#fff;
+    color:#1a1119;
+    transform:translateY(-4px);
+    box-shadow:0 10px 35px #d6a9c455;
+}
+
+/* محتوای اصلی */
+
+#content{
+    display:none;
+    position:relative;
+    z-index:1;
+}
+
+.container{
+    width:min(850px,92%);
+    margin:auto;
+    padding:100px 0;
 }
 
 .section{
-text-align:center;
-margin-bottom:80px;
+    text-align:center;
+    margin-bottom:120px;
+    animation:fadeUp 1s ease;
 }
 
-.section h2{
-font-family:Georgia,serif;
-font-size:38px;
-font-weight:400;
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(35px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
-.section p{
-line-height:2;
-color:#6d6068;
+.label{
+    color:#d9b8ca;
+    font-size:11px;
+    letter-spacing:5px;
+    direction:ltr;
 }
+
+.title{
+    font-family:Georgia,serif;
+    font-size:clamp(32px,7vw,52px);
+    font-weight:400;
+    margin:20px 0;
+}
+
+.text{
+    color:#c8bac3;
+    line-height:2.2;
+    font-size:15px;
+}
+
+/* کارت */
 
 .card{
-background:white;
-border:1px solid #eee1e7;
-border-radius:28px;
-padding:30px;
-box-shadow:0 12px 35px #332c3110;
+    margin-top:30px;
+    padding:35px;
+    border-radius:30px;
+    background:linear-gradient(
+        145deg,
+        #ffffff0d,
+        #ffffff03
+    );
+    border:1px solid #ffffff18;
+    box-shadow:0 20px 60px #00000035;
+    backdrop-filter:blur(15px);
 }
+
+/* نامه */
 
 .letter{
-text-align:right;
-line-height:2.3;
+    text-align:right;
+    line-height:2.4;
+    color:#e5dbe1;
+    font-size:15px;
 }
 
-.memories{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:15px;
+/* آرزوها */
+
+.wishes{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
 }
 
-.memory{
-height:170px;
-border-radius:22px;
-background:#eee4e9;
-display:flex;
-align-items:center;
-justify-content:center;
-color:#88757f;
+.wish{
+    padding:18px;
+    border-radius:18px;
+    background:#ffffff08;
+    border:1px solid #ffffff10;
+    color:#d7cbd2;
+    transition:.3s;
 }
 
-.number{
-font-family:Georgia,serif;
-font-size:45px;
-direction:ltr;
+.wish:hover{
+    transform:translateY(-4px);
+    background:#ffffff12;
 }
 
-footer{
-text-align:center;
-color:#a08d97;
-padding:30px;
+/* تایم کپسول */
+
+.capsule{
+    padding:45px 25px;
 }
 
-@media(max-width:600px){
-.memories{grid-template-columns:1fr}
-.memory{height:120px}
-}
-</style>
-</head>
-
-<body>
-
-<section class="page" id="opening">
-
-<div class="hero">
-
-<div class="small">A LITTLE SOMETHING FOR</div>
-
-<h1>NOORA</h1>
-
-<div class="date">29 · 09 · 2026</div>
-
-<button onclick="openGift()">بازش کن ♡</button>
-
-</div>
-
-</section>
-
-
-<main id="gift">
-
-<div class="wrap">
-
-<section class="section">
-
-<div class="small">WELCOME, NOORA</div>
-
-<h2>این صفحه فقط برای تو ساخته شده.</h2>
-
-<p>
-یه گوشه‌ی کوچیک از اینترنت، برای یه آدم خاص. 🤍
-</p>
-
-</section>
-
-
-<section class="section">
-
-<div class="small">A LETTER</div>
-
-<h2>برای نورا</h2>
-
-<div class="card letter">
-
-نورای عزیزم، 🤍
-
-<br><br>
-
-بالاخره رسیدیم به روزی که مدت‌ها منتظرش بودم.
-
-امیدوارم سال جدید زندگیت پر از اتفاق‌های قشنگ،
-آدم‌های خوب و کلی خاطره‌ی دوست‌داشتنی باشه.
-
-<br><br>
-
-امیدوارم هر چیزی که آرزوش رو داری،
-یه روز دقیقاً همون‌طور که می‌خوای به دستش بیاری.
-
-<br><br>
-
-همیشه بخند، دلت آروم باشه و هیچ‌وقت
-قشنگی‌های کوچیک زندگی رو از دست ندی.
-
-<br><br>
-
-تولدت مبارک نورا. 🎂🤍
-
-</div>
-
-</section>
-
-
-<section class="section">
-
-<div class="small">MEMORIES</div>
-
-<h2>خاطرات ما</h2>
-
-<div class="memories">
-
-<div class="memory">📷 عکس اول</div>
-
-<div class="memory
+.year{
+    font-family:Georgia,serif;
+    font-size:55px;
+    direction:ltr;
+    color:#e7bfd2;
+    margin-bottom
