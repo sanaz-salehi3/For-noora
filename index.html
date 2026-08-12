@@ -4,13 +4,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Noora ✨🌙</title>
 
-<title>For Noora ♡</title>
-
-<!-- Persian Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <link href="https://fonts.googleapis.com/css2?family=Estedad:wght@300;400;500;600;700&family=Vazirmatn:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
@@ -20,6 +17,8 @@
 ===================================================== */
 
 *{
+    margin:0;
+    padding:0;
     box-sizing:border-box;
 }
 
@@ -28,488 +27,360 @@ html{
 }
 
 body{
-    margin:0;
     min-height:100vh;
-
-    background:#08060b;
-    color:#fff;
-
+    background:#0a0815;
+    color:#f0e8ee;
     font-family:"Vazirmatn",Tahoma,sans-serif;
-
     overflow:hidden;
+    position:relative;
 }
 
 button{
     font-family:"Vazirmatn",sans-serif;
+    cursor:pointer;
 }
 
-
 /* =====================================================
-   CINEMATIC BACKGROUND
+   BACKGROUND
 ===================================================== */
 
-.background{
+.bg{
     position:fixed;
     inset:0;
-    overflow:hidden;
-
-    pointer-events:none;
-
     z-index:0;
-
     background:
-        radial-gradient(
-            circle at 50% 45%,
-            #241723 0%,
-            #0e0a12 42%,
-            #08060b 78%
-        );
+        radial-gradient(ellipse at 30% 20%, #1a0f20 0%, #0d0818 40%, #06030d 100%);
+    overflow:hidden;
 }
 
-.glow{
+.glow-orb{
     position:absolute;
-
-    width:430px;
-    height:430px;
-
     border-radius:50%;
-
-    filter:blur(120px);
-
-    opacity:.25;
-
-    animation:glowMove 12s ease-in-out infinite alternate;
+    filter:blur(100px);
+    animation:orbFloat 12s ease-in-out infinite alternate;
 }
 
-.glow-1{
-    top:-230px;
-    right:-170px;
-    background:#b85d8d;
+.glow-orb:nth-child(1){
+    width:400px;
+    height:400px;
+    top:-200px;
+    right:-150px;
+    background:#7a4a7a;
+    opacity:.15;
 }
 
-.glow-2{
-    bottom:-240px;
-    left:-180px;
-    background:#5750a0;
-
-    animation-delay:3s;
+.glow-orb:nth-child(2){
+    width:350px;
+    height:350px;
+    bottom:-180px;
+    left:-150px;
+    background:#4a4a8a;
+    opacity:.12;
+    animation-delay:4s;
 }
 
-.glow-3{
-    top:40%;
-    left:40%;
-
-    width:280px;
-    height:280px;
-
-    background:#a45f8b;
-
+.glow-orb:nth-child(3){
+    width:250px;
+    height:250px;
+    top:50%;
+    left:50%;
+    background:#8a4a6a;
     opacity:.08;
-
-    animation-delay:6s;
+    animation-delay:8s;
 }
 
-@keyframes glowMove{
-
-    from{
-        transform:translate(0,0) scale(1);
-    }
-
-    to{
-        transform:translate(50px,30px) scale(1.15);
-    }
-
+@keyframes orbFloat{
+    from{transform:translate(0,0) scale(1);}
+    to{transform:translate(40px,30px) scale(1.2);}
 }
-
 
 /* =====================================================
-   FILM GRAIN
+   MOON
 ===================================================== */
 
-.grain{
+.moon{
     position:fixed;
-    inset:-50%;
-
-    z-index:10;
-
-    pointer-events:none;
-
-    opacity:.055;
-
-    background-image:
-        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
-
-    animation:grainMove .25s steps(2) infinite;
+    top:8%;
+    right:10%;
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    background:radial-gradient(circle at 35% 35%, #fffbe6, #f5e6b8 40%, #d4c08a 70%, #b89f6b);
+    box-shadow:0 0 60px rgba(245,230,184,0.12), 0 0 120px rgba(245,230,184,0.06);
+    z-index:1;
+    animation:moonGlow 6s ease-in-out infinite alternate;
 }
 
-@keyframes grainMove{
-
-    0%{transform:translate(0,0);}
-    25%{transform:translate(2%,-1%);}
-    50%{transform:translate(-1%,2%);}
-    75%{transform:translate(1%,1%);}
-    100%{transform:translate(-2%,-2%);}
-
+@keyframes moonGlow{
+    0%{box-shadow:0 0 60px rgba(245,230,184,0.08), 0 0 120px rgba(245,230,184,0.04);}
+    100%{box-shadow:0 0 80px rgba(245,230,184,0.2), 0 0 160px rgba(245,230,184,0.1), 0 0 250px rgba(245,230,184,0.05);}
 }
 
-
-/* =====================================================
-   VIGNETTE
-===================================================== */
-
-.vignette{
-    position:fixed;
-    inset:0;
-
-    z-index:9;
-
-    pointer-events:none;
-
-    background:
-        radial-gradient(
-            ellipse at center,
-            transparent 42%,
-            rgba(0,0,0,.35) 100%
-        );
+.moon-crater{
+    position:absolute;
+    border-radius:50%;
+    background:rgba(180,150,100,0.15);
 }
 
+.moon-crater:nth-child(1){width:15px;height:18px;top:25%;left:20%;}
+.moon-crater:nth-child(2){width:22px;height:18px;top:15%;left:55%;}
+.moon-crater:nth-child(3){width:10px;height:12px;top:55%;left:30%;}
+.moon-crater:nth-child(4){width:28px;height:25px;top:60%;left:55%;}
+.moon-crater:nth-child(5){width:7px;height:9px;top:40%;left:75%;}
 
 /* =====================================================
    STARS
 ===================================================== */
 
 .star{
-    position:absolute;
-
-    width:3px;
-    height:3px;
-
+    position:fixed;
     border-radius:50%;
-
     background:#fff;
-
-    opacity:.2;
-
-    animation:twinkle 3s ease-in-out infinite;
+    z-index:1;
+    animation:twinkle var(--duration) ease-in-out infinite;
 }
 
 @keyframes twinkle{
-
-    0%,100%{
-        opacity:.1;
-        transform:scale(.5);
-    }
-
-    50%{
-        opacity:.9;
-        transform:scale(1.5);
-    }
-
+    0%,100%{opacity:.1;transform:scale(.6);}
+    50%{opacity:1;transform:scale(1.3);}
 }
 
+.shooting-star{
+    position:fixed;
+    z-index:1;
+    width:3px;
+    height:3px;
+    background:#fff;
+    border-radius:50%;
+    box-shadow:0 0 6px 2px rgba(255,255,255,0.3);
+    animation:shoot var(--duration) linear infinite;
+    opacity:0;
+}
+
+.shooting-star::after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    width:70px;
+    height:1px;
+    background:linear-gradient(to left, rgba(255,255,255,0.7), transparent);
+}
+
+@keyframes shoot{
+    0%{transform:translate(0,0) rotate(-35deg);opacity:0;}
+    5%{opacity:1;}
+    15%{opacity:1;}
+    20%{opacity:0;}
+    100%{transform:translate(-350px,180px) rotate(-35deg);opacity:0;}
+}
 
 /* =====================================================
-   FLOATING PARTICLES
+   PARTICLES
 ===================================================== */
 
 .particle{
-    position:absolute;
-
-    width:2px;
-    height:2px;
-
+    position:fixed;
     border-radius:50%;
-
     background:#e8bfd3;
-
-    opacity:.2;
-
+    opacity:.12;
+    z-index:1;
     animation:particleFloat linear infinite;
 }
 
 @keyframes particleFloat{
-
-    from{
-        transform:translateY(110vh);
-        opacity:0;
-    }
-
-    15%{
-        opacity:.35;
-    }
-
-    85%{
-        opacity:.25;
-    }
-
-    to{
-        transform:translateY(-20vh);
-        opacity:0;
-    }
-
+    from{transform:translateY(110vh) scale(0);opacity:0;}
+    10%{opacity:.25;}
+    90%{opacity:.15;}
+    to{transform:translateY(-20vh) scale(1);opacity:0;}
 }
 
-
 /* =====================================================
-   SCREEN
+   BUTTERFLIES
 ===================================================== */
 
-.screen{
+.butterfly{
+    position:fixed;
+    z-index:1;
+    pointer-events:none;
+    font-size:20px;
+    animation:fly var(--duration) ease-in-out infinite;
+    filter:drop-shadow(0 0 15px rgba(200,150,180,0.06));
+}
+
+@keyframes fly{
+    0%{transform:translate(0,0) rotate(0deg) scale(1);opacity:0.2;}
+    25%{transform:translate(var(--x1),var(--y1)) rotate(8deg) scale(1.1);opacity:0.7;}
+    50%{transform:translate(var(--x2),var(--y2)) rotate(-4deg) scale(0.9);opacity:0.9;}
+    75%{transform:translate(var(--x3),var(--y3)) rotate(6deg) scale(1.05);opacity:0.6;}
+    100%{transform:translate(var(--x4),var(--y4)) rotate(0deg) scale(1);opacity:0.2;}
+}
+
+/* =====================================================
+   MAIN CONTAINER
+===================================================== */
+
+.container{
+    position:relative;
+    z-index:2;
     width:100%;
     min-height:100vh;
-
-    padding:30px 20px;
-
-    position:relative;
-
-    z-index:2;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
-    animation:screenIn 1s cubic-bezier(.22,1,.36,1);
+    padding:20px;
 }
 
-.screen.hidden{
+/* =====================================================
+   SCREENS
+===================================================== */
+
+.screen{
     display:none;
+    width:100%;
+    max-width:700px;
+    animation:screenIn 0.9s cubic-bezier(.22,1,.36,1);
+}
+
+.screen.active{
+    display:block;
 }
 
 @keyframes screenIn{
-
-    from{
-        opacity:0;
-        transform:scale(1.03) translateY(20px);
-        filter:blur(8px);
-    }
-
-    to{
-        opacity:1;
-        transform:scale(1) translateY(0);
-        filter:blur(0);
-    }
-
+    from{opacity:0;transform:scale(.97) translateY(25px);filter:blur(10px);}
+    to{opacity:1;transform:scale(1) translateY(0);filter:blur(0);}
 }
-
 
 /* =====================================================
-   COMMON
+   CARD
 ===================================================== */
 
-.content{
-    width:min(720px,100%);
-
+.card{
+    background:rgba(255,255,255,.035);
+    backdrop-filter:blur(25px);
+    -webkit-backdrop-filter:blur(25px);
+    border-radius:45px 45px 30px 30px;
+    padding:50px 40px;
+    border:1px solid rgba(255,255,255,.05);
+    box-shadow:0 30px 80px rgba(0,0,0,.5), inset 0 0 80px rgba(255,255,255,.015);
     text-align:center;
+    position:relative;
+    overflow:hidden;
 }
 
+.card::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    height:1px;
+    background:linear-gradient(90deg, transparent, rgba(220,180,200,.2), transparent);
+}
+
+/* =====================================================
+   TYPOGRAPHY
+===================================================== */
+
 .label{
-    color:#caa5bb;
-
     font-family:Georgia,serif;
-
     font-size:10px;
-
-    letter-spacing:5px;
-
+    letter-spacing:6px;
+    color:#c8a8b8;
     direction:ltr;
-
-    opacity:.8;
+    text-transform:uppercase;
+    opacity:.6;
 }
 
 .title{
-    margin:18px 0 35px;
-
     font-family:"Estedad",sans-serif;
-
-    font-size:clamp(30px,8vw,52px);
-
+    font-size:clamp(28px,7vw,48px);
     font-weight:400;
-
+    margin:18px 0 25px;
     letter-spacing:-1px;
+    color:#f5e4ee;
 }
 
-.description{
-    color:#b9adb6;
-
-    font-size:14px;
-
+.subtitle{
+    font-size:15px;
+    color:#c8b8c0;
     line-height:2.5;
-
     font-weight:300;
 }
 
 .hint{
-    color:#8f818c;
-
     font-size:12px;
-
+    color:#8a7a84;
+    margin-top:18px;
     font-weight:300;
 }
-
 
 /* =====================================================
    BUTTON
 ===================================================== */
 
-.button{
-
+.btn{
     position:relative;
-
-    padding:14px 32px;
-
-    border-radius:50px;
-
-    border:1px solid rgba(221,180,202,.25);
-
-    background:rgba(255,255,255,.045);
-
-    color:#fff;
-
-    font-size:13px;
-
-    cursor:pointer;
-
-    transition:.4s;
-
-    backdrop-filter:blur(15px);
-
-    box-shadow:
-        inset 0 0 20px rgba(255,255,255,.02),
-        0 10px 35px rgba(0,0,0,.2);
-
+    padding:16px 42px;
+    border-radius:60px;
+    border:1px solid rgba(220,180,200,.12);
+    background:rgba(255,255,255,.03);
+    color:#f0e8ee;
+    font-size:14px;
+    transition:all .5s cubic-bezier(.22,1,.36,1);
+    backdrop-filter:blur(10px);
     overflow:hidden;
+    margin-top:10px;
 }
 
-.button::before{
-
-    content:"";
-
+.btn::before{
+    content:'';
     position:absolute;
-
     top:0;
     left:-100%;
-
-    width:70%;
+    width:60%;
     height:100%;
-
-    background:linear-gradient(
-        90deg,
-        transparent,
-        rgba(255,255,255,.2),
-        transparent
-    );
-
+    background:linear-gradient(90deg, transparent, rgba(255,255,255,.06), transparent);
     transform:skewX(-20deg);
-
     transition:.7s;
 }
 
-.button:hover::before{
+.btn:hover::before{
     left:130%;
 }
 
-.button:hover{
-
-    transform:translateY(-4px);
-
-    background:rgba(255,255,255,.12);
-
-    border-color:rgba(238,190,213,.5);
-
-    box-shadow:
-        0 15px 45px rgba(190,115,155,.2);
+.btn:hover{
+    transform:translateY(-4px) scale(1.02);
+    border-color:rgba(220,180,200,.25);
+    background:rgba(255,255,255,.07);
+    box-shadow:0 15px 45px rgba(150,80,120,.12);
 }
-
 
 /* =====================================================
    INTRO
 ===================================================== */
 
-.intro{
-    width:min(700px,100%);
-
-    text-align:center;
-}
-
-.overline{
+.glow-name{
     font-family:Georgia,serif;
-
-    font-size:10px;
-
-    letter-spacing:6px;
-
-    color:#c7a4b7;
-
-    direction:ltr;
-
-    opacity:.8;
-}
-
-.name{
-
-    margin:38px 0 25px;
-
-    font-family:Georgia,serif;
-
-    font-size:clamp(75px,22vw,150px);
-
+    font-size:clamp(70px,20vw,130px);
     font-weight:normal;
-
-    letter-spacing:-6px;
-
+    letter-spacing:-5px;
     line-height:.85;
-
     direction:ltr;
-
-    background:linear-gradient(
-        120deg,
-        #fff 10%,
-        #d8aabd 45%,
-        #fff 70%
-    );
-
+    margin:28px 0 18px;
+    background:linear-gradient(135deg, #f5e8f0 20%, #d4b0c8 50%, #f5e8f0 80%);
     background-size:200% auto;
-
     -webkit-background-clip:text;
     background-clip:text;
-
     color:transparent;
-
-    animation:nameShine 5s linear infinite;
+    animation:shine 4s linear infinite;
+    filter:drop-shadow(0 0 30px rgba(180,120,160,.12));
 }
 
-@keyframes nameShine{
-
-    from{
-        background-position:200% center;
-    }
-
-    to{
-        background-position:-200% center;
-    }
-
+@keyframes shine{
+    from{background-position:200% center;}
+    to{background-position:-200% center;}
 }
-
-.date{
-
-    color:#a99ba6;
-
-    font-size:13px;
-
-    letter-spacing:2px;
-}
-
-.intro-text{
-
-    color:#aaa0a8;
-
-    font-size:13px;
-
-    line-height:2.5;
-
-    margin:32px auto;
-}
-
 
 /* =====================================================
    ENVELOPE
@@ -520,18 +391,12 @@ button{
 }
 
 .envelope{
-
     width:260px;
     height:170px;
-
-    margin:42px auto 30px;
-
+    margin:35px auto 25px;
     position:relative;
-
     cursor:pointer;
-
     perspective:900px;
-
     transition:.5s;
 }
 
@@ -540,77 +405,48 @@ button{
 }
 
 .envelope-back{
-
     position:absolute;
     inset:0;
-
     border-radius:10px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #d3a1b7,
-            #75495f
-        );
-
-    box-shadow:
-        0 30px 80px rgba(0,0,0,.65),
-        0 0 50px rgba(180,100,140,.12);
+    background:linear-gradient(145deg, #d3a1b7, #75495f);
+    box-shadow:0 30px 80px rgba(0,0,0,.65), 0 0 50px rgba(180,100,140,.1);
 }
 
 .envelope-left{
-
     position:absolute;
-
     left:0;
     bottom:0;
-
     width:0;
     height:0;
-
     border-top:85px solid transparent;
     border-left:130px solid #a56d84;
-
     z-index:2;
 }
 
 .envelope-right{
-
     position:absolute;
-
     right:0;
     bottom:0;
-
     width:0;
     height:0;
-
     border-top:85px solid transparent;
     border-right:130px solid #925f76;
-
     z-index:2;
 }
 
 .flap{
-
     position:absolute;
-
     top:0;
     left:0;
-
     width:0;
     height:0;
-
     border-left:130px solid transparent;
     border-right:130px solid transparent;
     border-top:92px solid #deb4c5;
-
     transform-origin:top center;
-
     transition:1s cubic-bezier(.22,1,.36,1);
-
     z-index:4;
-
-    filter:drop-shadow(0 8px 8px rgba(0,0,0,.15));
+    filter:drop-shadow(0 8px 8px rgba(0,0,0,.12));
 }
 
 .envelope.open .flap{
@@ -618,1211 +454,520 @@ button{
 }
 
 .seal{
-
     position:absolute;
-
     width:46px;
     height:46px;
-
     left:calc(50% - 23px);
     top:64px;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     border-radius:50%;
-
     background:#fff;
-
     color:#9b647c;
-
     font-size:20px;
-
     z-index:6;
-
-    box-shadow:
-        0 0 0 5px rgba(255,255,255,.05),
-        0 10px 25px rgba(0,0,0,.25);
-
+    box-shadow:0 0 0 5px rgba(255,255,255,.05), 0 10px 25px rgba(0,0,0,.25);
     transition:.6s;
 }
 
 .envelope.open .seal{
-
     opacity:0;
-
     transform:scale(0) rotate(90deg);
 }
-
 
 /* =====================================================
    LETTER
 ===================================================== */
 
-.letter{
-
+.letter-box{
     text-align:right;
-
     padding:35px 28px;
-
     border-radius:28px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,.075),
-            rgba(255,255,255,.025)
-        );
-
-    border:1px solid rgba(255,255,255,.1);
-
-    box-shadow:
-        0 30px 80px rgba(0,0,0,.4),
-        inset 0 0 50px rgba(255,255,255,.015);
-
+    background:linear-gradient(135deg, rgba(255,255,255,.07), rgba(255,255,255,.02));
+    border:1px solid rgba(255,255,255,.08);
+    box-shadow:0 30px 80px rgba(0,0,0,.4), inset 0 0 50px rgba(255,255,255,.01);
     backdrop-filter:blur(20px);
-
     position:relative;
-
     overflow:hidden;
 }
 
-.letter::before{
-
-    content:"";
-
+.letter-box::before{
+    content:'';
     position:absolute;
-
     top:0;
     left:0;
-
     width:100%;
     height:1px;
-
-    background:linear-gradient(
-        90deg,
-        transparent,
-        #e0b5c9,
-        transparent
-    );
-
-    opacity:.5;
+    background:linear-gradient(90deg, transparent, #e0b5c9, transparent);
+    opacity:.4;
 }
 
-.letter h3{
-
+.letter-box h3{
     margin-top:0;
-
     font-family:"Estedad",sans-serif;
-
     font-size:24px;
-
     font-weight:500;
-
     color:#f1dce6;
 }
 
-.letter p{
-
+.letter-box p{
     color:#d7cbd2;
-
     font-family:"Vazirmatn",sans-serif;
-
     font-size:14px;
-
     line-height:2.7;
-
     margin:0 0 18px;
-
     font-weight:300;
 }
 
-
 /* =====================================================
-   CAKE
+   STAR COLLECTOR
 ===================================================== */
 
-.cake-area{
-    text-align:center;
+.star-collector{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    margin:30px 0 20px;
+    flex-wrap:wrap;
 }
 
-.cake{
-
-    font-size:72px;
-
-    filter:
-        drop-shadow(0 10px 25px rgba(220,150,180,.15));
-
-    animation:cakeFloat 3s ease-in-out infinite;
+.star-item{
+    font-size:30px;
+    opacity:.15;
+    transition:all .5s cubic-bezier(.34,1.56,.64,1);
+    cursor:pointer;
+    user-select:none;
+    filter:grayscale(1);
 }
 
-@keyframes cakeFloat{
-
-    0%,100%{
-        transform:translateY(0) rotate(-1deg);
-    }
-
-    50%{
-        transform:translateY(-12px) rotate(1deg);
-    }
-
+.star-item.collected{
+    opacity:1;
+    transform:scale(1.2);
+    filter:grayscale(0);
+    animation:starPop .5s cubic-bezier(.34,1.56,.64,1);
 }
+
+@keyframes starPop{
+    0%{transform:scale(0) rotate(-30deg);}
+    100%{transform:scale(1.2) rotate(0);}
+}
+
+/* =====================================================
+   CANDLE
+===================================================== */
 
 .candle{
-
     position:relative;
-
     width:30px;
     height:95px;
-
-    margin:35px auto;
-
+    margin:30px auto;
     cursor:pointer;
 }
 
 .candle-body{
-
     position:absolute;
-
     bottom:0;
     left:4px;
-
     width:22px;
     height:65px;
-
     border-radius:5px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #c990aa,
-            #fff,
-            #d49ab3
-        );
-
-    box-shadow:
-        0 5px 20px rgba(220,150,180,.15);
+    background:linear-gradient(90deg, #c990aa, #fff, #d49ab3);
+    box-shadow:0 5px 20px rgba(220,150,180,.12);
 }
 
-/* ========== FLAME - FIXED ========== */
 .flame{
-
     position:absolute;
-
     top:-8px;
     left:5px;
-
     width:20px;
     height:30px;
-
     border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;
-
-    background:radial-gradient(
-        ellipse at 50% 80%,
-        #fff8e1 0%,
-        #ffd17b 35%,
-        #ffb347 70%,
-        #ff8a5c 100%
-    );
-
-    box-shadow:
-        0 0 20px #ffc56c,
-        0 0 45px #ffb95f,
-        0 0 80px rgba(255,170,80,.3);
-
+    background:radial-gradient(ellipse at 50% 80%, #fff8e1 0%, #ffd17b 35%, #ffb347 70%, #ff8a5c 100%);
+    box-shadow:0 0 20px #ffc56c, 0 0 45px #ffb95f, 0 0 80px rgba(255,170,80,.25);
     animation:flameFlicker .6s ease-in-out infinite alternate;
-
     transform-origin:center bottom;
 }
 
 @keyframes flameFlicker{
-
-    0%{
-        transform:scale(1) translateX(0px);
-        border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;
-    }
-
-    25%{
-        transform:scale(1.05,1.1) translateX(-1px);
-        border-radius:55% 45% 50% 50% / 65% 55% 35% 45%;
-    }
-
-    50%{
-        transform:scale(0.95,1.05) translateX(1px);
-        border-radius:45% 55% 50% 50% / 55% 65% 45% 35%;
-    }
-
-    75%{
-        transform:scale(1.08,0.95) translateX(-1px);
-        border-radius:50% 50% 45% 55% / 60% 50% 40% 50%;
-    }
-
-    100%{
-        transform:scale(1) translateX(0px);
-        border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;
-    }
+    0%{transform:scale(1) translateX(0);border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;}
+    25%{transform:scale(1.05,1.1) translateX(-1px);border-radius:55% 45% 50% 50% / 65% 55% 35% 45%;}
+    50%{transform:scale(.95,1.05) translateX(1px);border-radius:45% 55% 50% 50% / 55% 65% 45% 35%;}
+    75%{transform:scale(1.08,.95) translateX(-1px);border-radius:50% 50% 45% 55% / 60% 50% 40% 50%;}
+    100%{transform:scale(1) translateX(0);border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;}
 }
 
-.flame.off{
-    display:none;
-}
+.flame.off{display:none;}
 
 .cake-message{
-
     display:none;
-
-    margin-top:30px;
-
+    margin-top:25px;
     animation:messageIn 1s cubic-bezier(.22,1,.36,1);
 }
 
-.cake-message.show{
-    display:block;
-}
+.cake-message.show{display:block;}
 
 @keyframes messageIn{
-
-    from{
-        opacity:0;
-        transform:translateY(25px);
-        filter:blur(8px);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(0);
-        filter:blur(0);
-    }
+    from{opacity:0;transform:translateY(25px);filter:blur(8px);}
+    to{opacity:1;transform:translateY(0);filter:blur(0);}
 }
-
 
 /* =====================================================
-   CONFETTI
+   GALAXY
 ===================================================== */
 
-#confetti{
-
-    position:fixed;
-    inset:0;
-
-    pointer-events:none;
-
-    z-index:100;
+.galaxy{
+    width:120px;
+    height:120px;
+    margin:20px auto;
+    position:relative;
+    animation:spin 20s linear infinite;
 }
 
-.confetti{
-
+.galaxy-ring{
     position:absolute;
-
-    width:7px;
-    height:13px;
-
-    border-radius:2px;
-
-    animation:fall 4s cubic-bezier(.2,.7,.3,1) forwards;
+    border-radius:50%;
+    border:1px solid rgba(200,170,200,.08);
 }
 
-@keyframes fall{
+.galaxy-ring:nth-child(1){inset:0;border-color:rgba(200,170,200,.12);}
+.galaxy-ring:nth-child(2){inset:10px;border-color:rgba(200,170,200,.08);animation:spinReverse 15s linear infinite;}
+.galaxy-ring:nth-child(3){inset:20px;border-color:rgba(200,170,200,.05);animation:spin 12s linear infinite;}
 
-    0%{
-        transform:
-            translateY(-20px)
-            rotate(0deg);
-        opacity:1;
-    }
-
-    100%{
-        transform:
-            translateY(110vh)
-            rotate(720deg);
-        opacity:0;
-    }
+.galaxy-center{
+    position:absolute;
+    inset:40px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(220,180,200,.12), transparent);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
 }
 
-
-/* =====================================================
-   SECRET
-===================================================== */
-
-.secret-icon{
-
-    font-size:48px;
-
-    margin-bottom:20px;
-
-    color:#d9b4c7;
-
-    animation:secretFloat 2.5s ease-in-out infinite;
+@keyframes spin{
+    from{transform:rotate(0deg);}
+    to{transform:rotate(360deg);}
 }
 
-@keyframes secretFloat{
-
-    0%,100%{
-        transform:translateY(0) rotate(0);
-        opacity:.7;
-    }
-
-    50%{
-        transform:translateY(-8px) rotate(10deg);
-        opacity:1;
-    }
+@keyframes spinReverse{
+    from{transform:rotate(360deg);}
+    to{transform:rotate(0deg);}
 }
-
-.secret-message{
-
-    display:none;
-
-    margin-top:30px;
-
-    padding:30px 24px;
-
-    border-radius:26px;
-
-    background:rgba(255,255,255,.045);
-
-    border:1px solid rgba(255,255,255,.1);
-
-    color:#d8ccd3;
-
-    line-height:2.6;
-
-    font-size:14px;
-
-    font-weight:300;
-
-    backdrop-filter:blur(20px);
-
-    box-shadow:
-        0 25px 70px rgba(0,0,0,.4);
-
-    animation:messageIn 1s cubic-bezier(.22,1,.36,1);
-}
-
-.secret-message.show{
-    display:block;
-}
-
 
 /* =====================================================
    FINAL
 ===================================================== */
 
-.final{
-    text-align:center;
-}
-
 .final-heart{
-
-    font-size:36px;
-
-    color:#e2bacd;
-
-    animation:heartbeat 1.5s infinite;
-
-    text-shadow:
-        0 0 25px rgba(220,150,180,.35);
+    font-size:50px;
+    animation:heartPulse 1.8s ease-in-out infinite;
+    filter:drop-shadow(0 0 40px rgba(200,150,180,.15));
 }
 
-@keyframes heartbeat{
-
-    0%,100%{
-        transform:scale(1);
-    }
-
-    50%{
-        transform:scale(1.2);
-    }
+@keyframes heartPulse{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.15);}
 }
 
 .final-name{
-
-    margin:25px 0;
-
     font-family:Georgia,serif;
-
     font-size:clamp(50px,12vw,85px);
-
     font-weight:normal;
-
+    letter-spacing:-4px;
     direction:ltr;
-
-    background:linear-gradient(
-        120deg,
-        #fff,
-        #dfb5c9,
-        #fff
-    );
-
+    margin:15px 0 20px;
+    background:linear-gradient(135deg, #f5e8f0 20%, #d4b0c8 50%, #f5e8f0 80%);
     background-size:200% auto;
-
     -webkit-background-clip:text;
     background-clip:text;
-
     color:transparent;
-
-    animation:nameShine 5s linear infinite;
+    animation:shine 4s linear infinite;
 }
 
+/* =====================================================
+   CONFETTI / STARFALL
+===================================================== */
+
+#starfall{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:100;
+}
+
+.star-piece{
+    position:absolute;
+    font-size:20px;
+    animation:starFall var(--duration) cubic-bezier(.2,.7,.3,1) forwards;
+    opacity:0;
+}
+
+@keyframes starFall{
+    0%{transform:translateY(-50px) rotate(0deg) scale(0);opacity:0;}
+    10%{opacity:1;transform:translateY(0) rotate(45deg) scale(1);}
+    100%{transform:translateY(110vh) rotate(720deg) scale(.5);opacity:0;}
+}
 
 /* =====================================================
    SIGNATURE
 ===================================================== */
 
 .signature{
-
-    margin-top:55px;
-
-    color:#766773;
-
+    margin-top:45px;
+    color:#665a64;
     font-family:"Estedad",sans-serif;
-
     font-size:11px;
-
-    letter-spacing:.2px;
-
-    opacity:.8;
+    opacity:.5;
 }
 
-
 /* =====================================================
-   FINAL FADE
+   FADE OVERLAY
 ===================================================== */
 
 #fadeOverlay{
-
     position:fixed;
-
     inset:0;
-
     background:#000;
-
     z-index:999;
-
     pointer-events:none;
-
     opacity:0;
-
-    transition:
-        opacity 3s cubic-bezier(.4,0,1,1);
+    transition:opacity 3s cubic-bezier(.4,0,1,1);
 }
 
-#fadeOverlay.active{
-    opacity:1;
-}
-
+#fadeOverlay.active{opacity:1;}
 
 /* =====================================================
-   MOBILE
+   RESPONSIVE
 ===================================================== */
 
 @media(max-width:600px){
-
-    .name{
-        letter-spacing:-4px;
-    }
-
-    .envelope{
-        transform:scale(.9);
-    }
-
-    .envelope:hover{
-        transform:scale(.9) translateY(-5px);
-    }
-
-    .letter{
-        padding:28px 21px;
-    }
-
-    .letter p{
-        font-size:13px;
-        line-height:2.6;
-    }
-
-    .title{
-        margin-bottom:28px;
-    }
-
+    .card{padding:30px 20px;border-radius:35px;}
+    .glow-name{letter-spacing:-3px;}
+    .moon{width:60px;height:60px;top:5%;right:5%;}
+    .envelope{transform:scale(.85);}
+    .envelope:hover{transform:scale(.85) translateY(-5px);}
+    .letter-box{padding:25px 18px;}
 }
 
 </style>
 </head>
 
-
 <body>
-
 
 <!-- =====================================================
      BACKGROUND
 ===================================================== -->
 
-<div class="background">
-
-    <div class="glow glow-1"></div>
-    <div class="glow glow-2"></div>
-    <div class="glow glow-3"></div>
-
-    <span class="star" style="top:8%;left:12%"></span>
-    <span class="star" style="top:18%;left:80%;animation-delay:.8s"></span>
-    <span class="star" style="top:30%;left:32%;animation-delay:1.4s"></span>
-    <span class="star" style="top:45%;left:88%;animation-delay:.4s"></span>
-    <span class="star" style="top:60%;left:8%;animation-delay:1.8s"></span>
-    <span class="star" style="top:75%;left:72%;animation-delay:1s"></span>
-    <span class="star" style="top:88%;left:25%;animation-delay:2s"></span>
-
+<div class="bg">
+    <div class="glow-orb"></div>
+    <div class="glow-orb"></div>
+    <div class="glow-orb"></div>
 </div>
 
+<!-- Moon -->
+<div class="moon">
+    <div class="moon-crater"></div>
+    <div class="moon-crater"></div>
+    <div class="moon-crater"></div>
+    <div class="moon-crater"></div>
+    <div class="moon-crater"></div>
+</div>
 
-<div class="grain"></div>
-<div class="vignette"></div>
+<!-- Butterflies -->
+<div class="butterfly" style="top:15%;right:20%;--duration:14s;--x1:30px;--y1:-25px;--x2:-25px;--y2:35px;--x3:40px;--y3:-20px;--x4:-15px;--y4:15px;">🦋</div>
+<div class="butterfly" style="bottom:25%;left:15%;--duration:16s;--x1:-35px;--y1:20px;--x2:30px;--y2:-30px;--x3:-20px;--y3:40px;--x4:20px;--y4:-10px;animation-delay:3s;">🦋</div>
 
-<div id="confetti"></div>
-
+<div id="starfall"></div>
 <div id="fadeOverlay"></div>
 
-
 <!-- =====================================================
-     1. INTRO
+   MAIN CONTAINER
 ===================================================== -->
 
-<section id="intro" class="screen">
+<div class="container">
 
-    <div class="intro">
-
-        <div class="overline">
-            A LITTLE SURPRISE FOR
+    <!-- ========== SCREEN 1: INTRO ========== -->
+    <div id="intro" class="screen active">
+        <div class="card">
+            <div class="label">✦ Hey Noora ✦</div>
+            <div class="glow-name">نورا</div>
+            <div style="color:#b8a0b0;font-size:13px;letter-spacing:2px;margin-bottom:18px;">
+                ۲۹ شهریور ۱۴۰۵
+            </div>
+            <p class="subtitle">
+                یه چیزای قشنگ برات درست کردم 🥰<br>
+                امیدوارم خوشت بیاد!
+            </p>
+            <button class="btn" onclick="showScreen('envelope')">
+                شروع کنیم؟ 🌙
+            </button>
         </div>
-
-        <div class="name">
-            NOORA
-        </div>
-
-        <div class="date">
-            ۲۹ شهریور ۱۴۰۵
-        </div>
-
-        <p class="intro-text">
-
-            یه چیز کوچیک برای یه آدم خاص.
-            <br>
-            آماده‌ای؟
-
-        </p>
-
-        <button
-            class="button"
-            onclick="goTo('envelope')"
-        >
-            شروع کن ♡
-        </button>
-
     </div>
 
-</section>
-
-
-<!-- =====================================================
-     2. ENVELOPE
-===================================================== -->
-
-<section id="envelope" class="screen hidden">
-
-    <div class="content envelope-wrap">
-
-        <div class="label">
-            SOMETHING FOR YOU
+    <!-- ========== SCREEN 2: ENVELOPE ========== -->
+    <div id="envelope" class="screen">
+        <div class="card">
+            <div class="label">💌 You've Got Mail</div>
+            <h2 class="title">یه نامه واسه تو...</h2>
+            <div class="envelope" id="envelopeBox" onclick="openEnvelope()">
+                <div class="envelope-back"></div>
+                <div class="envelope-left"></div>
+                <div class="envelope-right"></div>
+                <div class="flap"></div>
+                <div class="seal">♡</div>
+            </div>
+            <div class="hint">رو پاکت بزن تا باز شه 😊</div>
         </div>
+    </div>
 
-        <h2 class="title">
-            یه نامه منتظرته...
-        </h2>
+    <!-- ========== SCREEN 3: LETTER ========== -->
+    <div id="letter" class="screen">
+        <div class="card">
+            <div class="label">💫 For Noora</div>
+            <h2 class="title">سلام نورا جان 🤍</h2>
+            <div class="letter-box">
+                <h3>نورا جان،</h3>
+                <p>بالاخره رسید به روزی که منتظرش بودم! تولدت مبارک 🎉</p>
+                <p>امیدوارم سال جدید برات پر از اتفاقای خوب باشه. چیزایی که دوست داری، آدمایی که دوستشون داری، همه چی کنار هم.</p>
+                <p>امیدوارم به هر چیزی که می‌خوای برسی، حتی اونایی که هنوز به کسی نگفتی 🤫</p>
+                <p>امیدوارم همیشه بخندی و دلت آروم باشه.</p>
+                <p>تولدت مبارک نورا جون. 🎂🤍</p>
+            </div>
+            <br>
+            <button class="btn" onclick="showScreen('collector')">یه بازی جذاب داریم... ✨</button>
+        </div>
+    </div>
 
-        <div
-            class="envelope"
-            id="envelopeBox"
-            onclick="openEnvelope()"
-        >
+    <!-- ========== SCREEN 4: STAR COLLECTOR ========== -->
+    <div id="collector" class="screen">
+        <div class="card">
+            <div class="label">☆ Let's Play ☆</div>
+            <h2 class="title">ستاره‌ها رو جمع کن</h2>
+            <p class="subtitle">هر ستاره یه آرزوعه.<br>رو هر کدوم بزن تا روشن شه...</p>
 
-            <div class="envelope-back"></div>
-
-            <div class="envelope-left"></div>
-
-            <div class="envelope-right"></div>
-
-            <div class="flap"></div>
-
-            <div class="seal">
-                ♡
+            <div class="star-collector" id="starCollector">
+                <span class="star-item" data-index="0">✦</span>
+                <span class="star-item" data-index="1">✦</span>
+                <span class="star-item" data-index="2">✦</span>
+                <span class="star-item" data-index="3">✦</span>
+                <span class="star-item" data-index="4">✦</span>
             </div>
 
-        </div>
+            <div id="collectorMessage" style="display:none;">
+                <p class="subtitle" style="color:#e8d0e0;">✨ آفرین! همه رو جمع کردی! ✨</p>
+                <button class="btn" onclick="showScreen('birthday')">حالا بریم سراغ کیک... 🕯️</button>
+            </div>
 
-        <div class="hint">
-            روی پاکت بزن تا باز بشه
+            <div class="hint" id="collectorHint">۵ تا ستاره منتظرتن</div>
         </div>
-
     </div>
 
-</section>
+    <!-- ========== SCREEN 5: BIRTHDAY (CANDLE) ========== -->
+    <div id="birthday" class="screen">
+        <div class="card">
+            <div class="cake" style="font-size:72px;animation:cakeFloat 3s ease-in-out infinite;">🎂</div>
+            <style>
+                @keyframes cakeFloat{
+                    0%,100%{transform:translateY(0) rotate(-1deg);}
+                    50%{transform:translateY(-12px) rotate(1deg);}
+                }
+            </style>
+            <div class="label">🕯️ Make a Wish</div>
+            <h2 class="title">یه آرزو کن...</h2>
+            <p class="subtitle">قبل از هر چیزی،<br>یه آرزوی قشنگ برای خودت بکن.</p>
 
+            <div class="candle" onclick="blowCandle()">
+                <div id="flame" class="flame"></div>
+                <div class="candle-body"></div>
+            </div>
 
-<!-- =====================================================
-     3. LETTER
-===================================================== -->
+            <p id="candleHint" class="hint">رو شعله بزن 🕯️</p>
 
-<section id="letter" class="screen hidden">
-
-    <div class="content">
-
-        <div class="label">
-            A LETTER FOR NOORA
-        </div>
-
-        <h2 class="title">
-            برای نورا 🤍
-        </h2>
-
-        <div class="letter">
-
-            <h3>
-                نورای عزیزم،
-            </h3>
-
-            <p>
-                بالاخره رسیدیم به روزی که مدت‌ها منتظرش بودم؛
-                روز تولدت.
-            </p>
-
-            <p>
-                امیدوارم سال جدید زندگیت پر از
-                اتفاق‌های قشنگ، آدم‌های خوب
-                و لحظه‌هایی باشه که دلت بخواد
-                همیشه یادت بمونن.
-            </p>
-
-            <p>
-                امیدوارم به چیزهایی که دوست داری برسی،
-                حتی اون آرزوهایی که هنوز به کسی نگفتی.
-            </p>
-
-            <p>
-                امیدوارم همیشه دلت آروم باشه،
-                زیاد بخندی و هر روز یه دلیل
-                کوچیک برای خوشحال بودن داشته باشی.
-            </p>
-
-            <p>
-                تولدت مبارک نورا. 🎂🤍
-            </p>
-
-        </div>
-
-        <br>
-
-        <button
-            class="button"
-            onclick="goTo('birthday')"
-        >
-            هنوز یه چیز دیگه هست...
-        </button>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     4. BIRTHDAY
-===================================================== -->
-
-<section id="birthday" class="screen hidden">
-
-    <div class="content cake-area">
-
-        <div class="cake">
-            🎂
-        </div>
-
-        <div class="label">
-            MAKE A WISH
-        </div>
-
-        <h2 class="title">
-            یه آرزو کن...
-        </h2>
-
-        <p class="description">
-            قبل از اینکه ادامه بدی،
-            <br>
-            یه آرزو برای خودت کن.
-        </p>
-
-        <div
-            class="candle"
-            onclick="blowCandle()"
-        >
-
-            <div
-                id="flame"
-                class="flame"
-            ></div>
-
-            <div class="candle-body"></div>
-
-        </div>
-
-        <p id="candleHint" class="hint">
-            روی شعله بزن ✨
-        </p>
-
-
-        <div
-            id="cakeMessage"
-            class="cake-message"
-        >
-
-            <h2 class="title">
-                تولدت مبارک نورا! ✨
-            </h2>
-
-            <p class="description">
-
-                حالا آرزوت رو نگه دار...
+            <div id="cakeMessage" class="cake-message">
+                <h2 class="title">تولدت مبارک نورا! ✨</h2>
+                <p class="subtitle">حالا آرزوت رو نگه دار...<br>کی می‌دونه، شاید امسال سالش باشه! 🤍</p>
                 <br>
-                شاید امسال همون سالی باشه که منتظرشی. 🤍
+                <button class="btn" onclick="showScreen('galaxy')">یه چیز دیگه هم داریم... 🌌</button>
+            </div>
+        </div>
+    </div>
 
+    <!-- ========== SCREEN 6: GALAXY ========== -->
+    <div id="galaxy" class="screen">
+        <div class="card">
+            <div class="label">✦ Just for You ✦</div>
+            <h2 class="title">این کهکشان مال توئه</h2>
+            <p class="subtitle">می‌دونی؟<br>تو وسط قلب همه‌هایی که دوستت دارن جای داری.</p>
+
+            <div class="galaxy">
+                <div class="galaxy-ring"></div>
+                <div class="galaxy-ring"></div>
+                <div class="galaxy-ring"></div>
+                <div class="galaxy-center">🌌</div>
+            </div>
+
+            <p class="subtitle" style="font-size:13px;margin-top:10px;">تو مرکز این کهکشانی ✨</p>
+
+            <button class="btn" onclick="showScreen('final')">آخریشم ببین... ♡</button>
+        </div>
+    </div>
+
+    <!-- ========== SCREEN 7: FINAL ========== -->
+    <div id="final" class="screen">
+        <div class="card">
+            <div class="final-heart">♡</div>
+            <div class="label">Happy Birthday Noora</div>
+            <div class="final-name">نورا</div>
+
+            <p class="subtitle">
+                ۲۹ شهریور ۱۴۰۵
+                <br><br>
+                خب، این بود یه چیزای کوچیک از طرف من.<br>
+                امیدوارم امروزت عالی باشه،<br>
+                پر از خنده، عشق و چیزای قشنگ.<br><br>
+                تولدت مبارک نورا جان 🤍
             </p>
 
-            <br>
-
-            <button
-                class="button"
-                onclick="goTo('secret')"
-            >
-                یه چیز مخفی هم هست...
-            </button>
-
+            <div class="signature">از طرف ساناز برای نورای عزیزم 🌙</div>
         </div>
-
     </div>
 
-</section>
-
-
-<!-- =====================================================
-     5. SECRET
-===================================================== -->
-
-<section id="secret" class="screen hidden">
-
-    <div class="content">
-
-        <div class="secret-icon">
-            ✦
-        </div>
-
-        <div class="label">
-            SECRET MESSAGE
-        </div>
-
-        <h2 class="title">
-            این قسمت مخفیه...
-        </h2>
-
-        <p class="description">
-
-            فقط یه دکمه مونده.
-            <br>
-            مطمئنی می‌خوای بازش کنی؟
-
-        </p>
-
-        <button
-            id="secretButton"
-            class="button"
-            onclick="revealSecret()"
-        >
-            بازش کن
-        </button>
-
-
-        <div
-            id="secretMessage"
-            class="secret-message"
-        >
-
-            شاید این فقط یه پیام ساده به نظر بیاد،
-
-            <br><br>
-
-            ولی امیدوارم امروز
-            یه لبخند کوچیک روی لبت آورده باشه. 🤍
-
-            <br><br>
-
-            چون امروز روز توئه. ♡
-
-            <br><br>
-
-            تولدت مبارک نورا 🤍
-
-            <br><br>
-
-            <button
-                class="button"
-                onclick="goTo('final')"
-            >
-                آخرش رو ببین ♡
-            </button>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     6. FINAL
-===================================================== -->
-
-<section id="final" class="screen hidden">
-
-    <div class="content final">
-
-        <div class="final-heart">
-            ♡
-        </div>
-
-        <div class="label">
-            HAPPY BIRTHDAY
-        </div>
-
-        <div class="final-name">
-            NOORA
-        </div>
-
-        <p class="description">
-
-            ۲۹ شهریور ۱۴۰۵
-
-            <br><br>
-
-            امیدوارم سال جدید زندگیت
-            پر از اتفاق‌هایی باشه
-            که ارزش به یاد موندن دارن.
-
-            <br><br>
-
-            امیدوارم همیشه بخندی،
-            به آرزوهات برسی
-            و روزهای قشنگ زیادی
-            در انتظارت باشه.
-
-            <br><br>
-
-            تولدت مبارک 🤍
-
-        </p>
-
-
-        <!-- فقط یک بار -->
-        <div class="signature">
-            از طرف ساناز برای نورای عزیزم 🤍
-        </div>
-
-    </div>
-
-</section>
-
+</div>
 
 <script>
 
 /* =====================================================
-   NAVIGATION
+   GENERATE STARS
 ===================================================== */
 
-function goTo(screenId){
-
-    const screens =
-        document.querySelectorAll(".screen");
-
-    screens.forEach(screen=>{
-        screen.classList.add("hidden");
-    });
-
-    const next =
-        document.getElementById(screenId);
-
-    if(!next) return;
-
-    next.classList.remove("hidden");
-
-    window.scrollTo({
-        top:0,
-        left:0,
-        behavior:"smooth"
-    });
-
-}
-
-
-/* =====================================================
-   ENVELOPE
-===================================================== */
-
-let envelopeOpened = false;
-
-function openEnvelope(){
-
-    if(envelopeOpened) return;
-
-    envelopeOpened = true;
-
-    const envelope =
-        document.getElementById("envelopeBox");
-
-    envelope.classList.add("open");
-
-    setTimeout(()=>{
-
-        goTo("letter");
-
-    },1000);
-
-}
-
-
-/* =====================================================
-   CANDLE
-===================================================== */
-
-let candleBlown = false;
-
-function blowCandle(){
-
-    if(candleBlown) return;
-
-    candleBlown = true;
-
-    const flame =
-        document.getElementById("flame");
-
-    const hint =
-        document.getElementById("candleHint");
-
-    const message =
-        document.getElementById("cakeMessage");
-
-    flame.classList.add("off");
-
-    hint.innerText =
-        "آرزوت رو کردی؟ ✨";
-
-    createConfetti();
-
-    setTimeout(()=>{
-
-        message.classList.add("show");
-
-    },600);
-
-}
-
-
-/* =====================================================
-   CONFETTI
-===================================================== */
-
-function createConfetti(){
-
-    const container =
-        document.getElementById("confetti");
-
-    const symbols =
-        ["✦","✧","♡","•"];
-
-    for(let i=0;i<90;i++){
-
-        const piece =
-            document.createElement("div");
-
-        piece.className =
-            "confetti";
-
-        piece.innerText =
-            symbols[Math.floor(Math.random()*symbols.length)];
-
-        piece.style.left =
-            Math.random()*100 + "vw";
-
-        piece.style.top =
-            (-Math.random()*20) + "px";
-
-        piece.style.fontSize =
-            (8 + Math.random()*10) + "px";
-
-        piece.style.color =
-            `hsl(${320 + Math.random()*50},60%,${70 + Math.random()*20}%)`;
-
-        piece.style.animationDelay =
-            Math.random()*1 + "s";
-
-        container.appendChild(piece);
-
-        setTimeout(()=>{
-
-            piece.remove();
-
-        },5000);
-
+function generateStars(){
+    const bg = document.querySelector('.bg');
+    for(let i=0;i<80;i++){
+        const star = document.createElement('div');
+        star.className = 'star';
+        const size = 1 + Math.random() * 2.5;
+        star.style.width = size + 'px';
+        star.style.height = size + 'px';
+        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 100 + '%';
+        star.style.setProperty('--duration', (2 + Math.random() * 4) + 's');
+        star.style.animationDelay = (Math.random() * 5) + 's';
+        star.style.opacity = 0.2 + Math.random() * 0.5;
+        bg.appendChild(star);
     }
-
 }
-
+generateStars();
 
 /* =====================================================
-   SECRET
+   GENERATE SHOOTING STARS
 ===================================================== */
 
-function revealSecret(){
-
-    const message =
-        document.getElementById("secretMessage");
-
-    const button =
-        document.getElementById("secretButton");
-
-    message.classList.add("show");
-
-    button.style.display="none";
-
-}
-
-
-/* =====================================================
-   PARTICLES
-===================================================== */
-
-function createParticles(){
-
-    const background =
-        document.querySelector(".background");
-
-    for(let i=0;i<25;i++){
-
-        const particle =
-            document.createElement("span");
-
-        particle.className =
-            "particle";
-
-        particle.style.left =
-            Math.random()*100 + "%";
-
-        particle.style.animationDuration =
-            (8 + Math.random()*12) + "s";
-
-        particle.style.animationDelay =
-            (-Math.random()*15) + "s";
-
-        particle.style.opacity =
-            (.1 + Math.random()*.25);
-
-        background.appendChild(particle);
-
-    }
-
-}
-
-createParticles();
-
-
-/* =====================================================
-   EXTRA STARS
-===================================================== */
-
-function createStars(){
-
-    const background =
-        document.querySelector(".background");
-
-    for(let i=0;i<18;i++){
-
-        const star =
-            document.createElement("span");
-
-        star.className =
-            "star";
-
-        star.style.top =
-            Math.random()*100 + "%";
-
-        star.style.left =
-            Math.random()*100 + "%";
-
-        star.style.animationDelay =
-            Math.random()*4 + "s";
-
-        star.style.animationDuration =
-            (2 + Math.random()*3) + "s";
-
-        background.appendChild(star);
-
-    }
-
-}
-
-createStars();
-
-
-/* =====================================================
-   FINAL CINEMATIC FADE
-===================================================== */
-
-let finalFadeStarted = false;
-
-const observer =
-    new MutationObserver(()=>{
-
-        const final =
-            document.getElementById("final");
-
-        if(
-            !final.classList.contains("hidden") &&
-            !finalFadeStarted
-        ){
-
-            finalFadeStarted = true;
-
-            /*
-                چند ثانیه صفحه آخر دیده می‌شود،
-                بعد همه چیز آرام‌آرام محو می‌شود.
-            */
-
-            setTimeout(()=>{
-
-                const fade =
-                    document.getElementById("fadeOverlay");
-
-                fade.classList.add("active");
-
-            },7000);
-
-        }
-
-    });
-
-observer.observe(
-    document.body,
-    {
-        attributes:true,
-        subtree:true,
-        attributeFilter:["class"]
-    }
-);
-
-</script>
-
-</body>
-   </html>
+function generateShootingStars(){
+    const bg = document.querySelector('.bg');
+    for(let i=0;i<5;i++){
+        const star = document.createElement('div');
+        star.className = 'shooting-star';
+        star.style.left = (10 + Math.random() * 60) + '%';
+        star.style.top = (5 + Math.random() * 30) + '%';
+        star.style.setProperty('--duration', (8 + Math.random() * 12) + 's
