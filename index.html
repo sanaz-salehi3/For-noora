@@ -1,243 +1,954 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>For Noora ♡</title>
+<title>ستاره‌های تولد نورا ✨</title>
+
+<!-- Persian Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Estedad:wght@300;400;500;600;700&family=Vazirmatn:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600&display=swap');
+/* =====================================================
+   RESET
+===================================================== */
 
 *{
+    margin:0;
+    padding:0;
     box-sizing:border-box;
 }
 
-html{
-    scroll-behavior:smooth;
-}
-
 body{
-    margin:0;
-    background:#0d0a12;
-    color:#fff;
-    font-family:'Vazirmatn',sans-serif;
-    overflow-x:hidden;
+    min-height:100vh;
+    background:#0a0815;
+    color:#f0e8ee;
+    font-family:"Vazirmatn",Tahoma,sans-serif;
+    overflow:hidden;
+    position:relative;
 }
 
-/* ستاره ها */
+button{
+    font-family:"Vazirmatn",sans-serif;
+    cursor:pointer;
+}
 
-.stars{
+/* =====================================================
+   NIGHT SKY BACKGROUND
+===================================================== */
+
+.sky{
     position:fixed;
     inset:0;
-    pointer-events:none;
-    overflow:hidden;
     z-index:0;
+    background:linear-gradient(
+        180deg,
+        #06041a 0%,
+        #120c2b 30%,
+        #1a1038 60%,
+        #0f0825 100%
+    );
+}
+
+/* =====================================================
+   MOON
+===================================================== */
+
+.moon{
+    position:fixed;
+    top:8%;
+    left:12%;
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    background:radial-gradient(
+        circle at 35% 35%,
+        #fffbe6,
+        #f5e6b8 40%,
+        #d4c08a 70%,
+        #b89f6b
+    );
+    box-shadow:
+        0 0 60px rgba(245,230,184,0.15),
+        0 0 120px rgba(245,230,184,0.08),
+        0 0 200px rgba(245,230,184,0.04);
+    z-index:1;
+    animation:moonGlow 6s ease-in-out infinite alternate;
+}
+
+@keyframes moonGlow{
+    0%{box-shadow:0 0 60px rgba(245,230,184,0.1),0 0 120px rgba(245,230,184,0.05);}
+    100%{box-shadow:0 0 80px rgba(245,230,184,0.25),0 0 160px rgba(245,230,184,0.12),0 0 250px rgba(245,230,184,0.06);}
+}
+
+.moon-crater{
+    position:absolute;
+    border-radius:50%;
+    background:rgba(180,150,100,0.15);
+}
+
+.moon-crater:nth-child(1){
+    width:18px;
+    height:22px;
+    top:25%;
+    left:20%;
+}
+.moon-crater:nth-child(2){
+    width:25px;
+    height:20px;
+    top:15%;
+    left:55%;
+}
+.moon-crater:nth-child(3){
+    width:12px;
+    height:15px;
+    top:55%;
+    left:30%;
+}
+.moon-crater:nth-child(4){
+    width:30px;
+    height:28px;
+    top:60%;
+    left:55%;
+}
+.moon-crater:nth-child(5){
+    width:8px;
+    height:10px;
+    top:40%;
+    left:75%;
+}
+
+/* =====================================================
+   STARS (shooting and twinkling)
+===================================================== */
+
+.star-field{
+    position:fixed;
+    inset:0;
+    z-index:1;
+    pointer-events:none;
 }
 
 .star{
     position:absolute;
-    width:3px;
-    height:3px;
-    background:white;
+    background:#fff;
     border-radius:50%;
-    opacity:.5;
-    animation:twinkle 3s infinite ease-in-out;
+    animation:twinkle var(--duration) ease-in-out infinite;
 }
 
 @keyframes twinkle{
-    0%,100%{opacity:.15;transform:scale(.7)}
-    50%{opacity:.9;transform:scale(1.3)}
+    0%,100%{opacity:0.1;transform:scale(0.8);}
+    50%{opacity:1;transform:scale(1.3);}
 }
 
-/* صفحه اول */
+.shooting-star{
+    position:absolute;
+    width:3px;
+    height:3px;
+    background:#fff;
+    border-radius:50%;
+    box-shadow:0 0 6px 2px rgba(255,255,255,0.4);
+    animation:shoot var(--duration) linear infinite;
+    opacity:0;
+}
 
-#opening{
+.shooting-star::after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    width:80px;
+    height:1px;
+    background:linear-gradient(to left, rgba(255,255,255,0.8), transparent);
+    transform-origin:right center;
+}
+
+@keyframes shoot{
+    0%{
+        transform:translate(0,0) rotate(-35deg);
+        opacity:0;
+    }
+    5%{
+        opacity:1;
+    }
+    15%{
+        opacity:1;
+    }
+    20%{
+        opacity:0;
+    }
+    100%{
+        transform:translate(-400px,200px) rotate(-35deg);
+        opacity:0;
+    }
+}
+
+/* =====================================================
+   FLOATING ORBS
+===================================================== */
+
+.orb{
+    position:fixed;
+    border-radius:50%;
+    z-index:1;
+    pointer-events:none;
+    animation:orbFloat var(--duration) ease-in-out infinite alternate;
+    filter:blur(40px);
+    opacity:0.08;
+}
+
+@keyframes orbFloat{
+    0%{transform:translate(0,0) scale(1);}
+    100%{transform:translate(var(--tx),var(--ty)) scale(1.2);}
+}
+
+/* =====================================================
+   MAIN CONTAINER
+===================================================== */
+
+.container{
+    position:relative;
+    z-index:2;
+    width:100%;
     min-height:100vh;
     display:flex;
     align-items:center;
     justify-content:center;
-    position:relative;
-    z-index:1;
-    padding:30px;
+    padding:20px;
 }
 
-.hero{
-    text-align:center;
-    animation:appear 1.5s ease;
-}
+/* =====================================================
+   SCREENS
+===================================================== */
 
-@keyframes appear{
-    from{
-        opacity:0;
-        transform:translateY(30px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-.mini{
-    font-size:11px;
-    letter-spacing:6px;
-    color:#d9b8ca;
-    direction:ltr;
-}
-
-.noora{
-    font-family:Georgia,serif;
-    font-weight:400;
-    font-size:clamp(75px,20vw,150px);
-    line-height:.8;
-    margin:35px 0;
-    direction:ltr;
-    background:linear-gradient(
-        90deg,
-        #fff,
-        #eac5d8,
-        #fff
-    );
-    -webkit-background-clip:text;
-    color:transparent;
-}
-
-.birth{
-    font-size:13px;
-    letter-spacing:5px;
-    color:#bfaab7;
-    direction:ltr;
-}
-
-.open{
-    margin-top:45px;
-    padding:16px 35px;
-    border-radius:50px;
-    border:1px solid #d8b6c9;
-    background:#ffffff0d;
-    color:white;
-    font-family:inherit;
-    font-size:14px;
-    cursor:pointer;
-    backdrop-filter:blur(10px);
-    transition:.4s;
-}
-
-.open:hover{
-    background:#fff;
-    color:#1a1119;
-    transform:translateY(-4px);
-    box-shadow:0 10px 35px #d6a9c455;
-}
-
-/* محتوای اصلی */
-
-#content{
+.screen{
     display:none;
-    position:relative;
-    z-index:1;
+    width:100%;
+    max-width:700px;
+    animation:fadeIn 0.8s cubic-bezier(0.22,1,0.36,1);
 }
 
-.container{
-    width:min(850px,92%);
-    margin:auto;
-    padding:100px 0;
+.screen.active{
+    display:block;
 }
 
-.section{
+@keyframes fadeIn{
+    from{opacity:0;transform:translateY(30px) scale(0.97);filter:blur(10px);}
+    to{opacity:1;transform:translateY(0) scale(1);filter:blur(0);}
+}
+
+/* =====================================================
+   CARD STYLE
+===================================================== */
+
+.card{
+    background:rgba(255,255,255,0.04);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    border-radius:40px;
+    padding:50px 40px;
+    border:1px solid rgba(255,255,255,0.06);
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.5),
+        inset 0 0 80px rgba(255,255,255,0.02);
     text-align:center;
-    margin-bottom:120px;
-    animation:fadeUp 1s ease;
+    position:relative;
+    overflow:hidden;
 }
 
-@keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(35px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+.card::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    height:1px;
+    background:linear-gradient(90deg, transparent, rgba(200,170,200,0.3), transparent);
 }
+
+/* =====================================================
+   TYPOGRAPHY
+===================================================== */
 
 .label{
-    color:#d9b8ca;
-    font-size:11px;
-    letter-spacing:5px;
+    font-family:Georgia,serif;
+    font-size:10px;
+    letter-spacing:6px;
+    color:#b8a0b0;
     direction:ltr;
+    text-transform:uppercase;
+    opacity:0.7;
 }
 
 .title{
-    font-family:Georgia,serif;
-    font-size:clamp(32px,7vw,52px);
+    font-family:"Estedad",sans-serif;
+    font-size:clamp(28px,7vw,48px);
     font-weight:400;
+    margin:20px 0 30px;
+    letter-spacing:-1px;
+    color:#f5e8f0;
+}
+
+.subtitle{
+    font-size:14px;
+    color:#c8b8c0;
+    line-height:2.5;
+    font-weight:300;
+}
+
+.hint{
+    font-size:12px;
+    color:#8a7a84;
+    margin-top:20px;
+    font-weight:300;
+}
+
+/* =====================================================
+   BUTTON
+===================================================== */
+
+.btn{
+    position:relative;
+    padding:16px 40px;
+    border-radius:60px;
+    border:1px solid rgba(200,170,200,0.15);
+    background:rgba(255,255,255,0.03);
+    color:#f0e8ee;
+    font-size:14px;
+    transition:all 0.4s;
+    backdrop-filter:blur(10px);
+    overflow:hidden;
+    margin-top:10px;
+}
+
+.btn::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:60%;
+    height:100%;
+    background:linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+    transform:skewX(-20deg);
+    transition:0.7s;
+}
+
+.btn:hover::before{
+    left:130%;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    border-color:rgba(200,170,200,0.3);
+    background:rgba(255,255,255,0.08);
+    box-shadow:0 15px 40px rgba(100,50,120,0.15);
+}
+
+/* =====================================================
+   INTRO - NAME WITH GLOW
+===================================================== */
+
+.glow-name{
+    font-family:Georgia,serif;
+    font-size:clamp(70px,20vw,130px);
+    font-weight:normal;
+    letter-spacing:-5px;
+    line-height:0.85;
+    direction:ltr;
+    margin:30px 0 20px;
+    background:linear-gradient(135deg, #f5e8f0 20%, #d4b0c8 50%, #f5e8f0 80%);
+    background-size:200% auto;
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    animation:shine 4s linear infinite;
+    text-shadow:none;
+    filter:drop-shadow(0 0 30px rgba(180,120,160,0.15));
+}
+
+@keyframes shine{
+    from{background-position:200% center;}
+    to{background-position:-200% center;}
+}
+
+/* =====================================================
+   STAR COLLECTOR (interactive)
+===================================================== */
+
+.star-collector{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    margin:30px 0 20px;
+    flex-wrap:wrap;
+}
+
+.star-item{
+    font-size:28px;
+    opacity:0.2;
+    transition:all 0.5s cubic-bezier(0.34,1.56,0.64,1);
+    cursor:pointer;
+    user-select:none;
+    filter:grayscale(1);
+}
+
+.star-item.collected{
+    opacity:1;
+    transform:scale(1.2);
+    filter:grayscale(0);
+    animation:starPop 0.5s cubic-bezier(0.34,1.56,0.64,1);
+}
+
+@keyframes starPop{
+    0%{transform:scale(0) rotate(-30deg);}
+    100%{transform:scale(1.2) rotate(0);}
+}
+
+/* =====================================================
+   WISHING WELL
+===================================================== */
+
+.well{
+    width:80px;
+    height:80px;
+    margin:20px auto;
+    border-radius:50%;
+    background:radial-gradient(circle at 50% 50%, rgba(200,170,200,0.1), transparent);
+    border:1px solid rgba(200,170,200,0.1);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:40px;
+    cursor:pointer;
+    transition:all 0.5s;
+    position:relative;
+}
+
+.well:hover{
+    transform:scale(1.05);
+    border-color:rgba(200,170,200,0.3);
+    box-shadow:0 0 50px rgba(200,170,200,0.05);
+}
+
+.well .ripple{
+    position:absolute;
+    inset:-15px;
+    border-radius:50%;
+    border:1px solid rgba(200,170,200,0.05);
+    animation:ripple 2s ease-out infinite;
+}
+
+.well .ripple:nth-child(2){
+    animation-delay:0.7s;
+}
+
+.well .ripple:nth-child(3){
+    animation-delay:1.4s;
+}
+
+@keyframes ripple{
+    0%{transform:scale(0.8);opacity:1;}
+    100%{transform:scale(1.5);opacity:0;}
+}
+
+/* =====================================================
+   WISHES (floating text)
+===================================================== */
+
+.wish-container{
+    position:relative;
+    min-height:120px;
     margin:20px 0;
 }
 
-.text{
-    color:#c8bac3;
-    line-height:2.2;
-    font-size:15px;
+.wish-text{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:14px;
+    color:#c8b8c0;
+    font-weight:300;
+    opacity:0;
+    transition:all 0.8s cubic-bezier(0.22,1,0.36,1);
+    line-height:2.5;
 }
 
-/* کارت */
-
-.card{
-    margin-top:30px;
-    padding:35px;
-    border-radius:30px;
-    background:linear-gradient(
-        145deg,
-        #ffffff0d,
-        #ffffff03
-    );
-    border:1px solid #ffffff18;
-    box-shadow:0 20px 60px #00000035;
-    backdrop-filter:blur(15px);
+.wish-text.show{
+    opacity:1;
+    transform:translateX(-50%) translateY(0);
 }
 
-/* نامه */
-
-.letter{
-    text-align:right;
-    line-height:2.4;
-    color:#e5dbe1;
-    font-size:15px;
+.wish-text.fade-out{
+    opacity:0;
+    transform:translateX(-50%) translateY(-20px);
 }
 
-/* آرزوها */
+/* =====================================================
+   GALAXY SPINNER
+===================================================== */
 
-.wishes{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px;
+.galaxy{
+    width:120px;
+    height:120px;
+    margin:20px auto;
+    position:relative;
+    animation:spin 20s linear infinite;
 }
 
-.wish{
-    padding:18px;
-    border-radius:18px;
-    background:#ffffff08;
-    border:1px solid #ffffff10;
-    color:#d7cbd2;
-    transition:.3s;
+.galaxy-ring{
+    position:absolute;
+    border-radius:50%;
+    border:1px solid rgba(200,170,200,0.08);
 }
 
-.wish:hover{
-    transform:translateY(-4px);
-    background:#ffffff12;
+.galaxy-ring:nth-child(1){
+    inset:0;
+    border-color:rgba(200,170,200,0.12);
+}
+.galaxy-ring:nth-child(2){
+    inset:10px;
+    border-color:rgba(200,170,200,0.08);
+    animation:spinReverse 15s linear infinite;
+}
+.galaxy-ring:nth-child(3){
+    inset:20px;
+    border-color:rgba(200,170,200,0.05);
+    animation:spin 12s linear infinite;
 }
 
-/* تایم کپسول */
-
-.capsule{
-    padding:45px 25px;
+.galaxy-center{
+    position:absolute;
+    inset:40px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(220,180,200,0.15), transparent);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
 }
 
-.year{
-    font-family:Georgia,serif;
-    font-size:55px;
-    direction:ltr;
-    color:#e7bfd2;
-    margin-bottom
+@keyframes spin{
+    from{transform:rotate(0deg);}
+    to{transform:rotate(360deg);}
+}
+
+@keyframes spinReverse{
+    from{transform:rotate(360deg);}
+    to{transform:rotate(0deg);}
+}
+
+/* =====================================================
+   FINAL - COSMIC HEART
+===================================================== */
+
+.cosmic-heart{
+    font-size:50px;
+    animation:heartPulse 1.8s ease-in-out infinite;
+    filter:drop-shadow(0 0 40px rgba(200,150,180,0.2));
+}
+
+@keyframes heartPulse{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.15);}
+}
+
+/* =====================================================
+   CONFETTI (custom star confetti)
+===================================================== */
+
+#starfall{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:100;
+}
+
+.star-piece{
+    position:absolute;
+    font-size:20px;
+    animation:starFall var(--duration) cubic-bezier(0.2,0.7,0.3,1) forwards;
+    opacity:0;
+}
+
+@keyframes starFall{
+    0%{
+        transform:translateY(-50px) rotate(0deg) scale(0);
+        opacity:0;
+    }
+    10%{
+        opacity:1;
+        transform:translateY(0) rotate(45deg) scale(1);
+    }
+    100%{
+        transform:translateY(110vh) rotate(720deg) scale(0.5);
+        opacity:0;
+    }
+}
+
+/* =====================================================
+   SIGNATURE
+===================================================== */
+
+.signature{
+    margin-top:50px;
+    color:#665a64;
+    font-family:"Estedad",sans-serif;
+    font-size:11px;
+    opacity:0.6;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:600px){
+    .card{padding:30px 20px;}
+    .glow-name{letter-spacing:-3px;}
+    .moon{width:60px;height:60px;top:5%;left:5%;}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =====================================================
+   BACKGROUND - Night Sky
+===================================================== -->
+
+<div class="sky"></div>
+
+<!-- Moon -->
+<div class="moon">
+    <div class="moon-crater"></div>
+    <div class="moon-crater"></div>
+    <div class="moon-crater"></div>
+    <div class="moon-crater"></div>
+    <div class="moon-crater"></div>
+</div>
+
+<!-- Stars -->
+<div class="star-field" id="starField"></div>
+
+<!-- Shooting Stars -->
+<div class="star-field" id="shootingStars"></div>
+
+<!-- Floating Orbs -->
+<div class="orb" style="width:300px;height:300px;background:#7a5a8a;top:-100px;right:-100px;--duration:8s;--tx:50px;--ty:30px;"></div>
+<div class="orb" style="width:250px;height:250px;background:#5a4a7a;bottom:-80px;left:-80px;--duration:10s;--tx:-40px;--ty:-20px;animation-delay:2s;"></div>
+<div class="orb" style="width:200px;height:200px;background:#8a5a7a;top:50%;left:50%;--duration:12s;--tx:30px;--ty:-40px;animation-delay:4s;"></div>
+
+<!-- Starfall Container -->
+<div id="starfall"></div>
+
+<!-- =====================================================
+   MAIN CONTAINER
+===================================================== -->
+
+<div class="container">
+
+    <!-- ========== SCREEN 1: INTRO ========== -->
+    <div id="intro" class="screen active">
+        <div class="card">
+            <div class="label">✦ Under the Stars ✦</div>
+            <div class="glow-name">نورا</div>
+            <div style="color:#b8a0b0;font-size:13px;letter-spacing:2px;margin-bottom:20px;">
+                ۲۹ شهریور ۱۴۰۵
+            </div>
+            <p class="subtitle">
+                امشب ستاره‌ها برای تو می‌درخشند.<br>
+                آماده‌ای تا با هم به آسمان نگاه کنیم؟
+            </p>
+            <button class="btn" onclick="showScreen('collector')">
+                بیا بریم ✨
+            </button>
+        </div>
+    </div>
+
+    <!-- ========== SCREEN 2: STAR COLLECTOR ========== -->
+    <div id="collector" class="screen">
+        <div class="card">
+            <div class="label">☆ Collect the Stars ☆</div>
+            <h2 class="title">ستاره‌ها رو جمع کن</h2>
+            <p class="subtitle">
+                هر ستاره یه آرزوست.<br>
+                روی هر کدوم بزن تا روشن بشه...
+            </p>
+
+            <div class="star-collector" id="starCollector">
+                <span class="star-item" data-index="0">✦</span>
+                <span class="star-item" data-index="1">✦</span>
+                <span class="star-item" data-index="2">✦</span>
+                <span class="star-item" data-index="3">✦</span>
+                <span class="star-item" data-index="4">✦</span>
+            </div>
+
+            <div id="collectorMessage" style="display:none;">
+                <p class="subtitle" style="color:#e8d0e0;">
+                    ✨ همه ستاره‌ها روشن شدند! ✨
+                </p>
+                <button class="btn" onclick="showScreen('wish')">
+                    حالا آرزوت رو بگو...
+                </button>
+            </div>
+
+            <div class="hint">۵ تا ستاره منتظر تو هستند</div>
+        </div>
+    </div>
+
+    <!-- ========== SCREEN 3: WISHING WELL ========== -->
+    <div id="wish" class="screen">
+        <div class="card">
+            <div class="label">🌙 Make a Wish</div>
+            <h2 class="title">چاه آرزوها</h2>
+            <p class="subtitle">
+                یه آرزو برای خودت کن.<br>
+                بعد روی چاه بزن تا به آسمون بفرستیش...
+            </p>
+
+            <div class="well" id="wishWell" onclick="makeWish()">
+                <div class="ripple"></div>
+                <div class="ripple"></div>
+                <div class="ripple"></div>
+                <span style="position:relative;z-index:2;">🌟</span>
+            </div>
+
+            <div class="wish-container" id="wishContainer">
+                <div class="wish-text" id="wish1">امیدوارم همیشه شاد باشی... 🌸</div>
+                <div class="wish-text" id="wish2">امیدوارم به همه آرزوهات برسی... 🌠</div>
+                <div class="wish-text" id="wish3">امیدوارم عشق همیشه همراهت باشه... 💫</div>
+                <div class="wish-text" id="wish4">امیدوارم دنیا جای بهتری برات بشه... 🌍</div>
+                <div class="wish-text" id="wish5">امیدوارم همیشه لبخند روی لبت باشه... 🤍</div>
+            </div>
+
+            <div id="wishDone" style="display:none;margin-top:20px;">
+                <button class="btn" onclick="showScreen('galaxy')">
+                    آرزوها به آسمون رفتند... 🚀
+                </button>
+            </div>
+
+            <div class="hint" id="wishHint">روی چاه بزن تا آرزوت برآورده بشه</div>
+        </div>
+    </div>
+
+    <!-- ========== SCREEN 4: GALAXY ========== -->
+    <div id="galaxy" class="screen">
+        <div class="card">
+            <div class="label">✦ Cosmic Dance ✦</div>
+            <h2 class="title">کهکشان تو</h2>
+            <p class="subtitle">
+                هر موجودی توی این جهان یه جایگاه داره.<br>
+                جای تو توی قلب همه‌ست...
+            </p>
+
+            <div class="galaxy">
+                <div class="galaxy-ring"></div>
+                <div class="galaxy-ring"></div>
+                <div class="galaxy-ring"></div>
+                <div class="galaxy-center">🌌</div>
+            </div>
+
+            <p class="subtitle" style="font-size:13px;margin-top:10px;">
+                تو مرکز کهکشان نورا هستی ✨
+            </p>
+
+            <button class="btn" onclick="showScreen('final')">
+                آخرین ایستگاه... ♡
+            </button>
+        </div>
+    </div>
+
+    <!-- ========== SCREEN 5: FINAL ========== -->
+    <div id="final" class="screen">
+        <div class="card">
+            <div class="cosmic-heart">♡</div>
+            <div class="label">Happy Birthday</div>
+            <div class="glow-name" style="font-size:clamp(50px,12vw,80px);">نورا</div>
+
+            <p class="subtitle">
+                ۲۹ شهریور ۱۴۰۵
+                <br><br>
+                در میان این همه ستاره،<br>
+                تو درخشان‌ترینی.<br><br>
+                امیدوارم هر روز زندگیت<br>
+                پر از نور و عشق باشه.<br><br>
+                تولدت مبارک 🤍
+            </p>
+
+            <div class="signature">
+                از طرف ساناز برای نورای عزیزم 🌙
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+function showScreen(id){
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* =====================================================
+   STARS GENERATOR
+===================================================== */
+
+function generateStars(){
+    const field = document.getElementById('starField');
+    for(let i=0;i<80;i++){
+        const star = document.createElement('div');
+        star.className = 'star';
+        const size = 1 + Math.random() * 2.5;
+        star.style.width = size + 'px';
+        star.style.height = size + 'px';
+        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 100 + '%';
+        star.style.setProperty('--duration', (2 + Math.random() * 4) + 's');
+        star.style.animationDelay = (Math.random() * 5) + 's';
+        star.style.opacity = 0.2 + Math.random() * 0.5;
+        field.appendChild(star);
+    }
+}
+generateStars();
+
+/* =====================================================
+   SHOOTING STARS
+===================================================== */
+
+function generateShootingStars(){
+    const field = document.getElementById('shootingStars');
+    for(let i=0;i<6;i++){
+        const star = document.createElement('div');
+        star.className = 'shooting-star';
+        star.style.left = (10 + Math.random() * 60) + '%';
+        star.style.top = (5 + Math.random() * 30) + '%';
+        star.style.setProperty('--duration', (8 + Math.random() * 12) + 's');
+        star.style.animationDelay = (Math.random() * 15) + 's';
+        field.appendChild(star);
+    }
+}
+generateShootingStars();
+
+/* =====================================================
+   STAR COLLECTOR
+===================================================== */
+
+let collected = 0;
+const totalStars = 5;
+
+document.querySelectorAll('.star-item').forEach((el, idx) => {
+    el.addEventListener('click', function(){
+        if(this.classList.contains('collected')) return;
+        this.classList.add('collected');
+        collected++;
+        
+        // Star burst effect
+        createMiniBurst(this);
+        
+        if(collected === totalStars){
+            document.getElementById('collectorMessage').style.display = 'block';
+            createStarfall(20);
+        }
+    });
+});
+
+function createMiniBurst(el){
+    const rect = el.getBoundingClientRect();
+    const container = document.getElementById('starfall');
+    for(let i=0;i<8;i++){
+        const piece = document.createElement('div');
+        piece.className = 'star-piece';
+        piece.textContent = '✦';
+        piece.style.left = (rect.left + rect.width/2) + 'px';
+        piece.style.top = (rect.top + rect.height/2) + 'px';
+        piece.style.setProperty('--duration', (0.8 + Math.random() * 0.6) + 's');
+        piece.style.fontSize = (12 + Math.random() * 12) + 'px';
+        piece.style.color = `hsl(${320 + Math.random() * 40}, 60%, ${70 + Math.random() * 20}%)`;
+        piece.style.animationDelay = (Math.random() * 0.2) + 's';
+        container.appendChild(piece);
+        setTimeout(() => piece.remove(), 1500);
+    }
+}
+
+/* =====================================================
+   WISHING WELL
+===================================================== */
+
+let wishIndex = 0;
+const wishes = ['wish1','wish2','wish3','wish4','wish5'];
+
+function makeWish(){
+    if(wishIndex >= wishes.length) return;
+    
+    const well = document.getElementById('wishWell');
+    well.style.transform = 'scale(0.9)';
+    setTimeout(() => well.style.transform = 'scale(1)', 300);
+    
+    const current = document.getElementById(wishes[wishIndex]);
+    current.classList.add('show');
+    
+    // Remove previous
+    if(wishIndex > 0){
+        const prev = document.getElementById(wishes[wishIndex - 1]);
+        prev.classList.add('fade-out');
+        setTimeout(() => {
+            prev.classList.remove('show', 'fade-out');
+        }, 800);
+    }
+    
+    wishIndex++;
+    
+    if(wishIndex === wishes.length){
+        document.getElementById('wishDone').style.display = 'block';
+        document.getElementById('wishHint').textContent = 'همه آرزوها به آسمون فرستاده شدند 🌙';
+        createStarfall(30);
+    } else {
+        document.getElementById('wishHint').textContent = `${wishIndex + 1} از ${wishes.length} آرزوی بعدی... ✨`;
+    }
+}
+
+/* =====================================================
+   STARFALL (confetti alternative)
+===================================================== */
+
+function createStarfall(count = 50){
+    const container = document.getElementById('starfall');
+    const symbols = ['✦','✧','♡','★','☆','💫','🌙'];
+    
+    for(let i=0;i<count;i++){
+        const piece = document.createElement('div');
+        piece.className = 'star-piece';
+        piece.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        piece.style.left = (Math.random() * 100) + 'vw';
+        piece.style.top = (-Math.random() * 30) + 'px';
+        piece.style.setProperty('--duration', (3 + Math.random() * 3) + 's');
+        piece.style.fontSize = (14 + Math.random() * 20) + 'px';
+        piece.style.color = `hsl(${300 + Math.random() * 60}, 50%, ${65 + Math.random() * 30}%)`;
+        piece.style.animationDelay = (Math.random() * 1.5) + 's';
+        container.appendChild(piece);
+        setTimeout(() => piece.remove(), 6000);
+    }
+}
+
+/* =====================================================
+   TRIGGER STARFALL ON LOAD
+===================================================== */
+
+setTimeout(() => createStarfall(15), 1000);
+
+</script>
+
+</body>
+</html>
