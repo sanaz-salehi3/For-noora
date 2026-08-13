@@ -7,7 +7,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Estedad:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Blaka&family=Estedad:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -326,7 +326,6 @@ strong{
   to{opacity:1;transform:translateY(0);filter:blur(0)}
 }
 
-/* دایره آرزو */
 .wish-orb{
   width:105px;
   height:105px;
@@ -495,7 +494,6 @@ strong{
   box-shadow:0 8px 30px rgba(0,0,0,.18),inset 0 0 20px rgba(255,255,255,.018);
 }
 
-/* پیام دوستان */
 .friend-msg{
   display:none;
   text-align:right;
@@ -534,7 +532,6 @@ strong{
   flex-wrap:wrap;
 }
 
-/* پیام نهایی */
 .final-thanks{
   display:none;
   text-align:center;
@@ -559,7 +556,6 @@ strong{
   font-weight:300;
 }
 
-/* متن خاکستری بالای امضا */
 .thanks-gray{
   color:#887883;
   font-size:12px;
@@ -568,17 +564,33 @@ strong{
   font-weight:300;
 }
 
-/* امضای خیلی ریز */
 .love-signature{
-  margin-top:10px;
+  margin:18px auto 0;
+  text-align:center;
   color:#8f7b87;
-  font-family:"Playfair Display","Estedad",serif;
-  font-size:9px;
-  letter-spacing:1.5px;
-  opacity:.75;
+  font-family:"Estedad",Tahoma,sans-serif;
+  font-size:10px;
+  line-height:2;
+  letter-spacing:0;
+  opacity:.85;
+  background:none;
+  border:none;
+  box-shadow:none;
 }
 
-/* محو شدن کادر */
+.love-signature strong{
+  font-family:"Blaka",cursive;
+  font-size:24px;
+  font-weight:400;
+  color:#d889ad;
+}
+
+.love-signature span{
+  font-family:"Estedad",Tahoma,sans-serif;
+  color:#8f7b87;
+  font-size:10px;
+}
+
 .fade-out{
   animation:fadeOut .9s ease forwards !important;
 }
@@ -912,10 +924,6 @@ strong{
 
     </p>
 
-    <div class="signature-box">
-      از طرف ساناز
-    </div>
-
     <button class="btn" onclick="showScreen('friendsMessages')" style="margin-top:22px;">
       پیام بچه‌ها رو هم ببین
     </button>
@@ -975,7 +983,7 @@ strong{
 
 </section>
 
-<!-- پیام نهایی -->
+<!-- صفحه‌ی آخر -->
 <section id="thanksScreen" class="screen">
 
   <div class="card">
@@ -988,10 +996,12 @@ strong{
       امیدوارم این چند دقیقه کوچیک، یه حس خوب برات ساخته باشه.
     </p>
 
-    <div class="love-signature">
-      ساخته شده با عشق برای نورا
-    </div>
+  </div>
 
+  <!-- خارج از کادر اصلی و بدون کادر جدا -->
+  <div class="love-signature">
+    ساخته شده با عشق برای نورا<br>
+    <span>—</span> <strong>ساناز</strong>
   </div>
 
 </section>
@@ -1122,10 +1132,6 @@ function nextFriendMessage(){
       .getElementById("friendMsg"+currentFriend)
       .classList.add("active");
 
-    /*
-      پیام آخر ۲ ثانیه بعد شروع به محو شدن می‌کند
-    */
-
     if(currentFriend===totalFriends-1){
 
       friendTimer=setTimeout(()=>{
@@ -1151,8 +1157,6 @@ function nextFriendMessage(){
   }
 
 }
-
-/* ستاره‌های پس‌زمینه */
 
 for(let i=0;i<25;i++){
 
