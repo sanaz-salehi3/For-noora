@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#08060b">
+<meta name="description" content="A small birthday gift for Noora">
 <title>For Noora</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -344,9 +346,7 @@ strong{
   color:#fff;
 }
 
-.wish-orb:hover{
-  transform:scale(1.05);
-}
+.wish-orb:hover{transform:scale(1.05)}
 
 .wish-orb span{
   display:block;
@@ -538,9 +538,7 @@ strong{
   animation:messageIn .9s ease;
 }
 
-.final-thanks.show{
-  display:block;
-}
+.final-thanks.show{display:block}
 
 .final-thanks .thanks-title{
   font-size:22px;
@@ -615,7 +613,6 @@ strong{
 }
 
 @media(max-width:600px){
-
   .container{padding:14px}
   .screen{max-height:96vh}
   .card{padding:32px 18px 44px;border-radius:34px}
@@ -943,7 +940,6 @@ strong{
       هرکی یه چیزی گفته برات...
     </p>
 
-    <!-- پیام ۱: متین -->
     <div id="friendMsg0" class="friend-msg active">
       <div class="sender">متین</div>
       <div class="msg-body">
@@ -954,7 +950,6 @@ strong{
       </div>
     </div>
 
-    <!-- پیام ۲: سارینا -->
     <div id="friendMsg1" class="friend-msg">
       <div class="sender">سارینا</div>
       <div class="msg-body">
@@ -965,8 +960,17 @@ strong{
       </div>
     </div>
 
-    <!-- پیام ۳: حنا -->
     <div id="friendMsg2" class="friend-msg">
+      <div class="sender">سمیرا</div>
+      <div class="msg-body">
+        به اوج رسیدن<br>
+        و در اوج ماندن را<br>
+        برایت آرزو میکنم🫶🏼<br><br>
+        تولدت مبارک شهریور ماهی جان 💖🧁
+      </div>
+    </div>
+
+    <div id="friendMsg3" class="friend-msg">
       <div class="sender">حنا</div>
       <div class="msg-body">
         نورای عزیزم تولدت مبارک<br>
@@ -975,7 +979,7 @@ strong{
     </div>
 
     <div id="friendCounter" class="hint">
-      پیام ۱ از ۳
+      پیام ۱ از ۴
     </div>
 
     <div class="friends-nav">
@@ -988,7 +992,6 @@ strong{
 
 </section>
 
-<!-- صفحه‌ی آخر -->
 <section id="thanksScreen" class="screen">
 
   <div class="card">
@@ -1013,40 +1016,43 @@ strong{
 </div>
 
 <script>
+"use strict";
+
+/* ---------- Screen Navigation ---------- */
+
+const screens = document.querySelectorAll(".screen");
 
 function showScreen(id){
 
-  document.querySelectorAll(".screen").forEach(screen=>{
+  screens.forEach(screen => {
     screen.classList.remove("active");
   });
 
-  const target=document.getElementById(id);
+  const target = document.getElementById(id);
 
   if(target){
     target.classList.remove("fade-out");
     target.classList.add("active");
-    target.scrollTop=0;
+    target.scrollTop = 0;
   }
-
 }
 
-const wishes=[
 
+/* ---------- Wishes ---------- */
+
+const wishes = [
   "امیدوارم امسال بیشتر از همیشه دلت آروم باشه و اتفاقایی بیفته که واقعاً خوشحالت کنه.",
-
   "امیدوارم روزات پر از خبرای خوب، لحظه‌های قشنگ و اتفاقایی بشه که دلت رو خوشحال کنه.",
-
   "امیدوارم امسال پر باشه از آدمای درست، خاطره‌های خوب و لحظه‌هایی که دلت نمی‌خواد تموم بشن."
-
 ];
 
-let usedWishes=0;
+let usedWishes = 0;
 
-function showWish(index,button){
+function showWish(index, button){
 
-  const gift=document.getElementById("wishGift");
+  const gift = document.getElementById("wishGift");
 
-  gift.innerHTML=wishes[index];
+  gift.innerHTML = wishes[index];
 
   gift.classList.remove("show");
 
@@ -1058,25 +1064,29 @@ function showWish(index,button){
 
   usedWishes++;
 
-  if(usedWishes>=3){
-    document.getElementById("myWishNext").style.display="inline-block";
+  if(usedWishes >= wishes.length){
+    document.getElementById("myWishNext").style.display = "inline-block";
   }
-
 }
+
+
+/* ---------- Own Wish ---------- */
 
 function makeOwnWish(){
 
   document.getElementById("ownWishResult").classList.add("show");
 
-  document.getElementById("wishNext").style.display="inline-block";
-
+  document.getElementById("wishNext").style.display = "inline-block";
 }
 
-let candlesLeft=5;
+
+/* ---------- Birthday Candles ---------- */
+
+let candlesLeft = 5;
 
 function blowCandle(index){
 
-  const flame=document.getElementById("flame"+index);
+  const flame = document.getElementById("flame" + index);
 
   if(!flame || flame.classList.contains("off")) return;
 
@@ -1084,97 +1094,123 @@ function blowCandle(index){
 
   candlesLeft--;
 
-  const hint=document.getElementById("candleHint");
+  const hint = document.getElementById("candleHint");
 
-  if(candlesLeft>0){
+  if(candlesLeft > 0){
 
-    hint.textContent=candlesLeft+" تا شمع مونده";
+    hint.textContent = candlesLeft + " تا شمع مونده";
 
   }else{
 
-    hint.textContent="همه‌ی شمع‌ها خاموش شدن";
+    hint.textContent = "همه‌ی شمع‌ها خاموش شدن";
 
-    setTimeout(()=>{
-
+    setTimeout(() => {
       document.getElementById("birthdayResult").classList.add("show");
-
-    },500);
+    }, 500);
 
   }
-
 }
+
+
+/* ---------- Secret Message ---------- */
 
 function revealSecret(){
 
   document.getElementById("secretMessage").classList.add("show");
 
-  document.getElementById("secretButton").style.display="none";
-
+  document.getElementById("secretButton").style.display = "none";
 }
 
-// تبدیل عدد به فارسی
-function toPersian(num) {
-  return num.toString().replace(/\d/g, d => "۰۱۲۳۴۵۶۷۸۹"[d]);
+
+/* ---------- Persian Numbers ---------- */
+
+function toPersian(num){
+  return String(num).replace(/\d/g, digit => "۰۱۲۳۴۵۶۷۸۹"[digit]);
 }
 
-let currentFriend=0;
-const totalFriends=3;
-let friendTimer=null;
+
+/* ---------- Friends Messages ---------- */
+
+let currentFriend = 0;
+const totalFriends = 4;
+let friendTimer = null;
+
+const friendCounter = document.getElementById("friendCounter");
+const friendNext = document.getElementById("friendNext");
+const friendsCard = document.getElementById("friendsCard");
+const friendsMessages = document.getElementById("friendsMessages");
 
 function nextFriendMessage(){
 
-  document.getElementById("friendMsg"+currentFriend).classList.remove("active");
+  document.getElementById("friendMsg" + currentFriend)
+    .classList.remove("active");
 
   currentFriend++;
 
-  if(currentFriend < totalFriends){
+  if(currentFriend >= totalFriends) return;
 
-    document.getElementById("friendMsg"+currentFriend).classList.add("active");
+  document.getElementById("friendMsg" + currentFriend)
+    .classList.add("active");
 
-    // شمارنده کاملاً فارسی
-    document.getElementById("friendCounter").textContent = `پیام ${toPersian(currentFriend+1)} از ${toPersian(totalFriends)}`;
-    document.getElementById("friendCounter").style.display = "block";
+  friendCounter.textContent =
+    `پیام ${toPersian(currentFriend + 1)} از ${toPersian(totalFriends)}`;
 
-    if(currentFriend === totalFriends - 1){
-      document.getElementById("friendNext").style.display = "none";
+  friendCounter.style.display = "block";
 
-      friendTimer = setTimeout(()=>{
-        const card = document.getElementById("friendsCard");
-        card.classList.add("fade-out");
+  if(currentFriend === totalFriends - 1){
 
-        setTimeout(()=>{
-          document.getElementById("friendsMessages").classList.remove("active");
-          showScreen("thanksScreen");
-        },900);
-      },2500);
+    friendNext.style.display = "none";
 
-    } else {
-      document.getElementById("friendNext").style.display = "inline-block";
-    }
+    friendTimer = setTimeout(() => {
+
+      friendsCard.classList.add("fade-out");
+
+      setTimeout(() => {
+
+        friendsMessages.classList.remove("active");
+
+        showScreen("thanksScreen");
+
+      }, 900);
+
+    }, 2500);
+
+  }else{
+
+    friendNext.style.display = "inline-block";
 
   }
-
 }
 
-for(let i=0;i<25;i++){
 
-  const star=document.createElement("div");
+/* ---------- Background Stars ---------- */
 
-  star.className="bg-star";
+const starFragment = document.createDocumentFragment();
 
-  const size=Math.random()*2+1;
+for(let i = 0; i < 25; i++){
 
-  star.style.width=size+"px";
-  star.style.height=size+"px";
-  star.style.left=Math.random()*100+"%";
-  star.style.top=Math.random()*100+"%";
-  star.style.setProperty("--duration",(2+Math.random()*4)+"s");
-  star.style.animationDelay=Math.random()*4+"s";
+  const star = document.createElement("div");
+  const size = Math.random() * 2 + 1;
 
-  document.body.appendChild(star);
+  star.className = "bg-star";
 
+  star.style.width = size + "px";
+  star.style.height = size + "px";
+  star.style.left = Math.random() * 100 + "%";
+  star.style.top = Math.random() * 100 + "%";
+
+  star.style.setProperty(
+    "--duration",
+    2 + Math.random() * 4 + "s"
+  );
+
+  star.style.animationDelay =
+    Math.random() * 4 + "s";
+
+  starFragment.appendChild(star);
 }
 
+document.body.appendChild(starFragment);
 </script>
 
 </body>
