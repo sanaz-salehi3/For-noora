@@ -341,6 +341,13 @@ strong{color:#f5e4ee;font-weight:600}
     </div>
 
     <div id="friendMsg3" class="friend-msg">
+      <div class="sender">سوگل</div>
+      <div class="msg-body">
+        نورای قشنگم امیدوارم سال جدیدت تبدیل به یکی از بهترین سال های عمرت بشه و تک تک ارزوهایی که واسه امسال داری واست خاطره بشن🤍
+      </div>
+    </div>
+
+    <div id="friendMsg4" class="friend-msg">
       <div class="sender">حنا</div>
       <div class="msg-body">
         نورای عزیزم تولدت مبارک<br>
@@ -348,7 +355,7 @@ strong{color:#f5e4ee;font-weight:600}
       </div>
     </div>
 
-    <div id="friendCounter" class="hint">پیام ۱ از ۴</div>
+    <div id="friendCounter" class="hint">پیام ۱ از ۵</div>
     <div class="friends-nav">
       <button id="friendNext" class="btn" onclick="nextFriendMessage()">پیام بعدی</button>
     </div>
@@ -496,7 +503,7 @@ function revealSecret(){
 
 function toPersian(num){return num.toString().replace(/\d/g, d => "۰۱۲۳۴۵۶۷۸۹"[d])}
 let currentFriend = 0;
-const totalFriends = 4;
+const totalFriends = 5;
 
 function nextFriendMessage(){
   document.getElementById("friendMsg" + currentFriend).classList.remove("active");
@@ -535,4 +542,4 @@ for(let i = 0; i < 25; i++){
 }
 </script>
 </body>
-                              </html>
+  </html>
